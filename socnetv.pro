@@ -349,4 +349,5 @@ INSTALLS += target
 
 
 TRANSLATIONS = translations/socnetv_es.ts \
-               translations/socnetv_de.ts
+               translations/socnetv_de.ts \
+               translations/socnetv_zh_CN.ts

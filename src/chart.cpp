@@ -442,7 +442,7 @@ void Chart::resetToTrivial() {
     addSeries();
     createDefaultAxes();
     axes(Qt::Horizontal).first()->setLabelsAngle(-90);
-    setTitle("Chart", QFont("Times",8));
+    setTitle(tr("Chart"), QFont("Times",8));
 
     setAxisXRange(0,1);
     setAxisYRange(0,1);

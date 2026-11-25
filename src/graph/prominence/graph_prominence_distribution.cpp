@@ -201,91 +201,91 @@ void Graph::prominenceDistribution(const int &index,
     }
     case IndexType::DC:
     {
-        seriesName = ("(out)Degree");
+        seriesName = (tr("(out)Degree"));
         discreteClasses = discreteSDCs;
         break;
     }
     case IndexType::CC:
     {
-        seriesName = ("Closeness");
+        seriesName = (tr("Closeness"));
         discreteClasses = discreteCCs;
         break;
     }
     case IndexType::IRCC:
     {
-        seriesName = ("IRCC");
+        seriesName = (tr("IRCC"));
         discreteClasses = discreteIRCCs;
         break;
     }
     case IndexType::BC:
     {
-        seriesName = ("Betweenness");
+        seriesName = (tr("Betweenness"));
         discreteClasses = discreteBCs;
         break;
     }
     case IndexType::SC:
     {
-        seriesName = ("Stress");
+        seriesName = (tr("Stress"));
         discreteClasses = discreteSCs;
         break;
     }
     case IndexType::EC:
     {
-        seriesName = ("Eccentricity");
+        seriesName = (tr("Eccentricity"));
         discreteClasses = discreteECs;
         break;
     }
     case IndexType::PC:
     {
-        seriesName = ("Power");
+        seriesName = (tr("Power"));
         discreteClasses = discretePCs;
         break;
     }
     case IndexType::IC:
     {
-        seriesName = ("Information");
+        seriesName = (tr("Information"));
         discreteClasses = discreteICs;
         break;
     }
     case IndexType::EVC:
     {
-        seriesName = ("Eigenvector");
+        seriesName = (tr("Eigenvector"));
         discreteClasses = discreteEVCs;
         break;
     }
     case IndexType::DP:
     {
-        seriesName = ("Prestige Degree");
+        seriesName = (tr("Prestige Degree"));
         discreteClasses = discreteDPs;
         break;
     }
     case IndexType::PRP:
     {
-        seriesName = ("Pagerank");
+        seriesName = (tr("Pagerank"));
         discreteClasses = discretePRPs;
         break;
     }
     case IndexType::PP:
     {
-        seriesName = ("Proximity");
+        seriesName = (tr("Proximity"));
         discreteClasses = discretePPs;
         break;
     }
     case IndexType::CLC:
     {
-        seriesName = ("Clustering");
+        seriesName = (tr("Clustering"));
         discreteClasses = discreteCLCs;
         break;
     }
     case IndexType::KATZ:
     {
-        seriesName = ("Katz");
+        seriesName = (tr("Katz"));
         discreteClasses = discreteKCs;
         break;
     }
     case IndexType::BPC:
     {
-        seriesName = ("Bonacich Power");
+        seriesName = (tr("Bonacich Power"));
         discreteClasses = discreteBPCs;
         break;
     }

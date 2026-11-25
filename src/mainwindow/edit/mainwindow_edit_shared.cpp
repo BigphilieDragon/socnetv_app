@@ -77,32 +77,32 @@ void MainWindow::saveSubgraphToFile(Graph *sub, const QString &subgraphName)
     int fileType = FileType::GRAPHML;
     QString defaultExt = ".graphml";
 
-    if (selectedFilter.startsWith("Pajek"))
+    if (selectedFilter.startsWith(tr("Pajek")))
     {
         fileType = FileType::PAJEK;
         defaultExt = ".net";
     }
-    else if (selectedFilter.startsWith("Adjacency"))
+    else if (selectedFilter.startsWith(tr("Adjacency")))
     {
         fileType = FileType::ADJACENCY;
         defaultExt = ".csv";
     }
-    else if (selectedFilter.startsWith("GraphViz"))
+    else if (selectedFilter.startsWith(tr("GraphViz")))
     {
         fileType = FileType::GRAPHVIZ;
         defaultExt = ".dot";
     }
-    else if (selectedFilter.startsWith("UCINET"))
+    else if (selectedFilter.startsWith(tr("UCINET")))
     {
         fileType = FileType::UCINET;
         defaultExt = ".dl";
     }
-    else if (selectedFilter.startsWith("Weighted Edge"))
+    else if (selectedFilter.startsWith(tr("Weighted Edge")))
     {
         fileType = FileType::EDGELIST_WEIGHTED;
         defaultExt = ".wlst";
     }
-    else if (selectedFilter.startsWith("Simple Edge"))
+    else if (selectedFilter.startsWith(tr("Simple Edge")))
     {
         fileType = FileType::EDGELIST_SIMPLE;
         defaultExt = ".lst";

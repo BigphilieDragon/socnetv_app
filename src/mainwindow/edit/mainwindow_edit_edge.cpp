@@ -158,7 +158,7 @@ void MainWindow::slotEditEdgeClicked(const MyEdge &edge,
         rightPanelClickedEdgeReciprocalWeightLCD->setVisible(false);
         if (openMenu)
         {
-            edgeName = QString("EDGE: ") + QString::number(v1) + QString(" -- ") + QString::number(v2);
+            edgeName = QString(tr("EDGE: ")) + QString::number(v1) + QString(" -- ") + QString::number(v2);
         }
     }
     else if (type == EdgeType::Reciprocated)
@@ -174,13 +174,13 @@ void MainWindow::slotEditEdgeClicked(const MyEdge &edge,
         rightPanelClickedEdgeNameLCD->setText(QString::number(v1) + QString(" <-->") + QString::number(v2));
         rightPanelClickedEdgeWeightLabel->setText(tr("Weight:"));
         rightPanelClickedEdgeWeightLCD->setText(QString::number(weight));
-        rightPanelClickedEdgeReciprocalWeightLabel->setText("Recipr.:");
+        rightPanelClickedEdgeReciprocalWeightLabel->setText(tr("Recipr.:"));
         rightPanelClickedEdgeReciprocalWeightLabel->setVisible(true);
         rightPanelClickedEdgeReciprocalWeightLCD->setText(QString::number(reverseWeight));
         rightPanelClickedEdgeReciprocalWeightLCD->setVisible(true);
         if (openMenu)
         {
-            edgeName = QString("RECIPROCATED EDGE: ") + QString::number(v1) + QString(" <-->") + QString::number(v2);
+            edgeName = QString(tr("RECIPROCATED EDGE: ")) + QString::number(v1) + QString(" <-->") + QString::number(v2);
         }
     }
     else
@@ -198,7 +198,7 @@ void MainWindow::slotEditEdgeClicked(const MyEdge &edge,
 
         if (openMenu)
         {
-            edgeName = QString("DIRECTED EDGE: ") + QString::number(v1) + QString(" -->") + QString::number(v2);
+            edgeName = QString(tr("DIRECTED EDGE: ")) + QString::number(v1) + QString(" -->") + QString::number(v2);
         }
     }
 
@@ -282,14 +282,14 @@ void MainWindow::slotEditEdgeAdd()
     {
         sourceNode = QInputDialog::getInt(
             this,
-            "Create new edge, Step 1",
+            tr("Create new edge, Step 1"),
             tr("This will draw a new edge between two nodes. \n"
                "Enter source node (" +
                QString::number(min).toLatin1() + "..." + QString::number(max).toLatin1() + "):"),
             min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Add edge operation cancelled.");
+            statusMessage(tr("Add edge operation cancelled."));
             return;
         }
     }
@@ -308,11 +308,11 @@ void MainWindow::slotEditEdgeAdd()
         return;
     }
 
-    targetNode = QInputDialog::getInt(this, "Create new edge, Step 2",
-                                      tr("Source node:") + QString::number(sourceNode) + tr(" \nNow enter a target node [") + QString::number(min).toLatin1() + "..." + QString::number(max).toLatin1() + "]:", min, min, max, 1, &ok);
+    targetNode = QInputDialog::getInt(this, tr("Create new edge, Step 2"),
+                                      tr("Source node:") + QString::number(sourceNode) + tr(" \nNow enter a target node [") + QString::number(min).toLatin1() + tr("...") + QString::number(max).toLatin1() + tr("]:"), min, min, max, 1, &ok);
     if (!ok)
     {
-        statusMessage("Add edge target operation cancelled.");
+        statusMessage(tr("Add edge target operation cancelled."));
         return;
     }
     if (!activeGraph->vertexExists(targetNode))
@@ -326,13 +326,13 @@ void MainWindow::slotEditEdgeAdd()
     }
 
     weight = QInputDialog::getDouble(
-        this, "Create new edge, Step 3",
+        this, tr("Create new edge, Step 3"),
         tr("Source and target nodes accepted. \n"
            "Please, enter the weight of new edge: "),
         1.0, -100.0, 100.0, 1, &ok);
     if (!ok)
     {
-        statusMessage("Add edge operation cancelled.");
+        statusMessage(tr("Add edge operation cancelled."));
         return;
     }
     // Check if this edge already exists...
@@ -367,7 +367,7 @@ void MainWindow::slotEditEdgeCreate(const int &source, const int &target, const 
         source, target, weight,
         appSettings["initEdgeColor"],
         (editEdgeUndirectedAllAct->isChecked()) ? 2 : 0,
-        (editEdgeUndirectedAllAct->isChecked()) ? false : ((appSettings["initEdgeArrows"] == "true") ? true : false), bezier);
+        (editEdgeUndirectedAllAct->isChecked()) ? false : ((appSettings["initEdgeArrows"] == tr("true")) ? true : false), bezier);
 
     if (result)
     {
@@ -507,11 +507,11 @@ void MainWindow::slotEditEdgeRemove()
         sourceNode = QInputDialog::getInt(
             this, tr("Remove edge"),
             tr("Source node:  (") + QString::number(min) +
-                "..." + QString::number(max) + "):",
+                tr("...") + QString::number(max) + tr("):"),
             min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Remove edge operation cancelled.");
+            statusMessage(tr("Remove edge operation cancelled."));
             return;
         }
 
@@ -523,7 +523,7 @@ void MainWindow::slotEditEdgeRemove()
             min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Remove edge operation cancelled.");
+            statusMessage(tr("Remove edge operation cancelled."));
             return;
         }
         if (activeGraph->edgeExists(sourceNode, targetNode, false) != 0)
@@ -581,7 +581,7 @@ void MainWindow::slotEditEdgeRemove()
 
             items << arcA
                   << arcB
-                  << "Both";
+                  << tr("Both");
 
             ok = false;
 
@@ -643,7 +643,7 @@ void MainWindow::slotEditEdgeLabel()
     if (!activeGraph->edgeClicked().source || !activeGraph->edgeClicked().target)
     { // no edge clicked. Ask user to define an edge.
         sourceNode = QInputDialog::getInt(this,
-                                          "Change edge label",
+                                          tr("Change edge label"),
                                           tr("Select edge source node:  (" +
                                              QString::number(min).toLatin1() +
                                              "..." + QString::number(max).toLatin1() +
@@ -651,18 +651,18 @@ void MainWindow::slotEditEdgeLabel()
                                           min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge label operation cancelled.");
+            statusMessage(tr("Change edge label operation cancelled."));
             return;
         }
         targetNode = QInputDialog::getInt(this,
-                                          "Change edge label...",
+                                          tr("Change edge label..."),
                                           tr("Select edge target node:  (" +
                                              QString::number(min).toLatin1() + "..." +
                                              QString::number(max).toLatin1() + "):"),
                                           min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge label operation cancelled.");
+            statusMessage(tr("Change edge label operation cancelled."));
             return;
         }
 
@@ -717,10 +717,10 @@ void MainWindow::slotEditEdgeColorAll(QColor color, const int threshold)
         QString text;
         if (threshold < RAND_MAX)
         {
-            text = "Change the color of edges weighted < " + QString::number(threshold);
+            text = tr("Change the color of edges weighted < ") + QString::number(threshold);
         }
         else
-            text = "Change the color of all edges";
+            text = tr("Change the color of all edges");
         color = QColorDialog::getColor(appSettings["initEdgeColor"], this,
                                        text);
     }
@@ -773,7 +773,7 @@ void MainWindow::slotEditEdgeColor()
     if (!activeGraph->edgeClicked().source || !activeGraph->edgeClicked().target)
     { // no edge clicked. Ask user to define an edge.
         sourceNode = QInputDialog::getInt(this,
-                                          "Change edge color",
+                                          tr("Change edge color"),
                                           tr("Select edge source node:  (" +
                                              QString::number(min).toLatin1() +
                                              "..." + QString::number(max).toLatin1() +
@@ -781,18 +781,18 @@ void MainWindow::slotEditEdgeColor()
                                           min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge color operation cancelled.");
+            statusMessage(tr("Change edge color operation cancelled."));
             return;
         }
         targetNode = QInputDialog::getInt(this,
-                                          "Change edge color...",
+                                          tr("Change edge color..."),
                                           tr("Select edge target node:  (" +
                                              QString::number(min).toLatin1() + "..." +
                                              QString::number(max).toLatin1() + "):"),
                                           min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge color operation cancelled.");
+            statusMessage(tr("Change edge color operation cancelled."));
             return;
         }
 
@@ -861,27 +861,27 @@ void MainWindow::slotEditEdgeWeight()
         // No edge clicked/selected. Show dialog to select the edge by source/target nodes.
         sourceNode = QInputDialog::getInt(
             this,
-            "Edge weight",
+            tr("Edge weight"),
             tr("Select edge source node:  (" +
                QString::number(min).toLatin1() + "..." +
                QString::number(max).toLatin1() + "):"),
             min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge weight operation cancelled.");
+            statusMessage(tr("Change edge weight operation cancelled."));
             return;
         }
 
         targetNode = QInputDialog::getInt(
             this,
-            "Edge weight",
+            tr("Edge weight"),
             tr("Select edge target node:  (" +
                QString::number(min).toLatin1() + "..." +
                QString::number(max).toLatin1() + "):"),
             min, 1, max, 1, &ok);
         if (!ok)
         {
-            statusMessage("Change edge weight operation cancelled.");
+            statusMessage(tr("Change edge weight operation cancelled."));
             return;
         }
 
@@ -939,7 +939,7 @@ void MainWindow::slotEditEdgeWeight()
 
     qreal oldWeight = 0;
 
-    QString dialogTitle = "Edge " + QString::number(sourceNode) + "->" + QString::number(targetNode);
+    QString dialogTitle = tr("Edge ") + QString::number(sourceNode) + "->" + QString::number(targetNode);
 
     bool undirected = activeGraph->isUndirected();
 
@@ -950,7 +950,7 @@ void MainWindow::slotEditEdgeWeight()
         // Fix the dialog title.
         if (changeBothEdges || undirected)
         {
-            dialogTitle = "Edge " + QString::number(sourceNode) + "<->" + QString::number(targetNode);
+            dialogTitle = tr("Edge ") + QString::number(sourceNode) + "<->" + QString::number(targetNode);
         }
 
         // Prompt the user for the new edge weight
@@ -1060,7 +1060,7 @@ void MainWindow::slotEditEdgeDichotomization(const qreal threshold)
                           tr("New dichotomized relation created"),
                           tr("A new relation called \"%1\" has been added to the network, "
                              "using the given dichotomization threshold. ")
-                              .arg("Binary"));
+                              .arg(tr("Binary")));
 
     statusMessage(tr("Edge dichotomization finished. "));
 }
@@ -1115,7 +1115,7 @@ void MainWindow::slotEditEdgeSymmetrizeStrongTies()
                                   tr("A new relation \"%1\" has been added to the network. "
                                      "by counting reciprocated ties only. "
                                      "This relation is binary and symmetric. ")
-                                      .arg("Strong Ties"));
+                                      .arg(tr("Strong Ties")));
         });
 }
 

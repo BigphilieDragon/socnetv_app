@@ -99,7 +99,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
     case USER_MSG_INFO:
         if (!statusMsg.isNull())
             statusMessage(statusMsg);
-        msgBox.setWindowTitle("Information");
+        msgBox.setWindowTitle(tr("Information"));
         msgBox.setText(text);
         if (!info.isNull())
             msgBox.setInformativeText(info);
@@ -122,7 +122,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
     case USER_MSG_CRITICAL:
         if (!statusMsg.isNull())
             statusMessage(statusMsg);
-        msgBox.setWindowTitle("Error");
+        msgBox.setWindowTitle(tr("Error"));
         msgBox.setText(text);
         if (!info.isNull())
             msgBox.setInformativeText(info);
@@ -136,7 +136,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
 
     case USER_MSG_CRITICAL_NO_NETWORK:
         statusMessage(tr("Nothing to do! Load or create a social network first"));
-        msgBox.setWindowTitle("Error");
+        msgBox.setWindowTitle(tr("Error"));
         msgBox.setText(
             tr("No network! \n"
                "Load social network data or create a new social network first. \n"));
@@ -149,7 +149,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
 
     case USER_MSG_CRITICAL_NO_EDGES:
         statusMessage(tr("Nothing to do! Load social network data or create edges first"));
-        msgBox.setWindowTitle("Error");
+        msgBox.setWindowTitle(tr("Error"));
         msgBox.setText(
             tr("No edges! \n"
                "Load social network data or create some edges first. \n"));
@@ -163,7 +163,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
     case USER_MSG_QUESTION:
         if (!statusMsg.isNull())
             statusMessage(statusMsg);
-        msgBox.setWindowTitle("Question");
+        msgBox.setWindowTitle(tr("Question"));
         msgBox.setText(text);
         if (!info.isNull())
             msgBox.setInformativeText(info);
@@ -186,7 +186,7 @@ int MainWindow::slotHelpMessageToUser(const int type,
     case USER_MSG_QUESTION_CUSTOM: // a custom question with just two/three buttons
         if (!statusMsg.isNull())
             statusMessage(statusMsg);
-        msgBox.setWindowTitle("Question");
+        msgBox.setWindowTitle(tr("Question"));
         msgBox.setText(text);
         if (!info.isNull())
             msgBox.setInformativeText(info);
@@ -361,8 +361,8 @@ void MainWindow::slotHelpCheckUpdateParse()
     if (replyContent.isEmpty())
     {
         slotHelpMessageToUserError(
-            "Empty response from https://socnetv.org. "
-            "Could not get the latest version number. Please try again later...");
+            tr("Empty response from https://socnetv.org. "
+               "Could not get the latest version number. Please try again later..."));
         return;
     }
 
@@ -371,8 +371,8 @@ void MainWindow::slotHelpCheckUpdateParse()
     if (!versionRx.match(replyContent).hasMatch())
     {
         slotHelpMessageToUserError(
-            "Could not understand the version number I got from https://socnetv.org. "
-            "Please, try again later...");
+            tr("Could not understand the version number I got from https://socnetv.org. "
+               "Please, try again later..."));
         return;
     }
 
@@ -479,38 +479,17 @@ void MainWindow::slotHelpAbout()
 */
 void MainWindow::createFortuneCookies()
 {
-    fortuneCookie += "sic itur ad astra / sic transit gloria mundi ? <br /> "
-                     "--Unknown";
-    fortuneCookie += "The truth is not my business. I am a statistician... I don’t like words like \"correct\" and \"truth\". "
-                     "Statistics is about measuring against convention. <br /> "
-                     "Walter Radermacher, Eurostat director, interview to NY Times, 2012.";
-    fortuneCookie += "Losers of yesterday, the winners of tomorrow... <br /> "
-                     "--B.Brecht";
-    fortuneCookie += "I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. "
-                     "I watched C-beams glitter in the dark near the Tannhauser gate. "
-                     "All those moments will be lost in time... like tears in rain... Time to die.<br />"
-                     "Replicant Roy Batty, Blade Runner (1982)";
-    fortuneCookie += "Patriotism is the virtue of the wicked... <br /> "
-                     "--O. Wilde";
-    fortuneCookie += "No tengo nunca mas, no tengo siempre. En la arena <br />"
-                     "la victoria dejo sus piers perdidos.<br />"
-                     "Soy un pobre hombre dispuesto a amar a sus semejantes.<br />"
-                     "No se quien eres. Te amo. No doy, no vendo espinas. <br /> "
-                     "--Pablo Neruda";
-    fortuneCookie += "Man must not check reason by tradition, but contrawise, "
-                     "must check tradition by reason.<br> --Leo Tolstoy";
-    fortuneCookie += "Only after the last tree has been cut down, <br>"
-                     "only after the last river has been poisoned,<br> "
-                     "only after the last fish has been caught,<br>"
-                     "only then will you realize that money cannot be eaten. <br> "
-                     "--The Cree People";
-    fortuneCookie += "Stat rosa pristina nomine, nomina nuda tenemus <br >"
-                     " --Unknown";
-    fortuneCookie += "Jupiter and Saturn, Oberon, Miranda <br />"
-                     "And Titania, Neptune, Titan. <br />"
-                     "Stars can frighten. <br /> Syd Barrett";
-    fortuneCookie += "In theory, there is no difference between theory and practice. <br /> "
-                     "In practice, there is. <br /> --Yogi Berra";
+    fortuneCookie += tr("sic itur ad astra / sic transit gloria mundi ? <br /> ") + tr("--Unknown");
+    fortuneCookie += tr("The truth is not my business. I am a statistician... I don’t like words like \"correct\" and \"truth\". ") + tr("Statistics is about measuring against convention. <br /> ") + tr("Walter Radermacher, Eurostat director, interview to NY Times, 2012.");
+    fortuneCookie += tr("Losers of yesterday, the winners of tomorrow... <br /> ") + tr("--B.Brecht");
+    fortuneCookie += tr("I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. ") + tr("I watched C-beams glitter in the dark near the Tannhauser gate. ") + tr("All those moments will be lost in time... like tears in rain... Time to die.<br />") + tr("Replicant Roy Batty, Blade Runner (1982)");
+    fortuneCookie += tr("Patriotism is the virtue of the wicked... <br /> ") + tr("--O. Wilde");
+    fortuneCookie += tr("No tengo nunca mas, no tengo siempre. En la arena <br />") + tr("la victoria dejo sus piers perdidos.<br />") + tr("Soy un pobre hombre dispuesto a amar a sus semejantes.<br />") + tr("No se quien eres. Te amo. No doy, no vendo espinas. <br /> ") + tr("--Pablo Neruda");
+    fortuneCookie += tr("Man must not check reason by tradition, but contrawise, ") + tr("must check tradition by reason.<br> --Leo Tolstoy");
+    fortuneCookie += tr("Only after the last tree has been cut down, <br>") + tr("only after the last river has been poisoned,<br> ") + tr("only after the last fish has been caught,<br>") + tr("only then will you realize that money cannot be eaten. <br> ") + tr("--The Cree People");
+    fortuneCookie += tr("Stat rosa pristina nomine, nomina nuda tenemus <br >") + tr(" --Unknown");
+    fortuneCookie += tr("Jupiter and Saturn, Oberon, Miranda <br />") + tr("And Titania, Neptune, Titan. <br />") + tr("Stars can frighten. <br /> Syd Barrett");
+    fortuneCookie += tr("In theory, there is no difference between theory and practice. <br /> ") + tr("In practice, there is. <br /> --Yogi Berra");
 }
 
 /**
@@ -518,5 +497,5 @@ void MainWindow::createFortuneCookies()
 */
 void MainWindow::slotAboutQt()
 {
-    QMessageBox::aboutQt(this, "About Qt - SocNetV");
+    QMessageBox::aboutQt(this, tr("About Qt - SocNetV"));
 }

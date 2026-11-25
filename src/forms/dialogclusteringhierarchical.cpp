@@ -17,6 +17,7 @@
  
 
 #include "dialogclusteringhierarchical.h"
+#include <QCoreApplication>
 
 #include <QDebug>
 #include "forms_logging.h"
@@ -32,31 +33,31 @@ DialogClusteringHierarchical::DialogClusteringHierarchical (QWidget *parent,
 
     (ui.buttonBox)->button (QDialogButtonBox::Ok)->setDefault(true);
 
-    matrixList << "Adjacency"
-               << "Distances";
+    matrixList << QCoreApplication::translate("SocNetV", "Adjacency")
+               << QCoreApplication::translate("SocNetV", "Distances");
 
-    measureList << "None, use raw input matrix"
-                << "Jaccard distance"
-                << "Hamming distance"
-                << "Euclidean distance"
-                << "Manhattan distance";
+    measureList << tr("None, use raw input matrix")
+                << tr("Jaccard distance")
+                << tr("Hamming distance")
+                << tr("Euclidean distance")
+                << tr("Manhattan distance");
 
 
-    linkageList << "Single-linkage (minimum)"
-                << "Complete-linkage (maximum)"
-                << "Average-linkage (WPGMA)"
-                << "Average-linkage (UPGMA)";
+    linkageList << tr("Single-linkage (minimum)")
+                << tr("Complete-linkage (maximum)")
+                << tr("Average-linkage (WPGMA)")
+                << tr("Average-linkage (UPGMA)");
 
     variablesLocationList
-            << "Rows"
-            << "Columns"
-            << "Both";
+            << QCoreApplication::translate("SocNetV", "Rows")
+            << QCoreApplication::translate("SocNetV", "Columns")
+            << QCoreApplication::translate("SocNetV", "Both");
 
     ui.variablesLocationSelect->insertItems( 1, variablesLocationList );
     ui.variablesLocationSelect->setCurrentIndex(2);
 
     ui.matrixSelect->insertItems( 1, matrixList );
-    if (preselectMatrix == "Distances") {
+    if (preselectMatrix == QCoreApplication::translate("SocNetV", "Distances")) {
         ui.matrixSelect->setCurrentIndex(1);
     }
 

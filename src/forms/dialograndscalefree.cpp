@@ -46,7 +46,7 @@ DialogRandScaleFree::DialogRandScaleFree(QWidget *parent) :
     ui.undirectedRadioButton->setChecked(false);
     ui.directedRadioButton->setEnabled(true);
     ui.directedRadioButton->setChecked(true);
-    ui.diagCheckBox->setText("No, set zero");
+    ui.diagCheckBox->setText(tr("No, set zero"));
     ui.diagCheckBox->setChecked(false);
     ui.diagCheckBox->setEnabled(false);
 
@@ -74,9 +74,9 @@ void DialogRandScaleFree::setModeUndirected (){
 
 void DialogRandScaleFree::setDiag (){
     if (ui.diagCheckBox->isChecked())
-        ui.diagCheckBox->setText("Yes, allow");
+        ui.diagCheckBox->setText(tr("Yes, allow"));
     else
-        ui.diagCheckBox->setText("No, set zero");
+        ui.diagCheckBox->setText(tr("No, set zero"));
 }
 
 void DialogRandScaleFree::checkErrors() {

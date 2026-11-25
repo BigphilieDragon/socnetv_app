@@ -44,40 +44,40 @@ void MainWindow::initView()
 
     bool toggle = false;
 
-    toggle = (appSettings["opengl"] == "true") ? true : false;
+    toggle = (appSettings["opengl"] == tr("true")) ? true : false;
     graphicsWidget->setOptionsOpenGL(toggle);
 
-    toggle = (appSettings["antialiasing"] == "true") ? true : false;
+    toggle = (appSettings["antialiasing"] == tr("true")) ? true : false;
     graphicsWidget->setOptionsAntialiasing(toggle);
 
     // Disables QGraphicsView's antialiasing auto-adjustment of exposed areas.
-    toggle = (appSettings["canvasAntialiasingAutoAdjustment"] == "true") ? false : true;
+    toggle = (appSettings["canvasAntialiasingAutoAdjustment"] == tr("true")) ? false : true;
     graphicsWidget->setOptionsNoAntialiasingAutoAdjust(toggle);
 
-    toggle = (appSettings["canvasSmoothPixmapTransform"] == "true") ? true : false;
+    toggle = (appSettings["canvasSmoothPixmapTransform"] == tr("true")) ? true : false;
     graphicsWidget->setRenderHint(QPainter::SmoothPixmapTransform, toggle);
 
     // if items do restore their state, it's not needed for graphicsWidget to do the same...
-    toggle = (appSettings["canvasPainterStateSave"] == "true") ? false : true;
+    toggle = (appSettings["canvasPainterStateSave"] == tr("true")) ? false : true;
     graphicsWidget->setOptimizationFlag(QGraphicsView::DontSavePainterState, toggle);
 
-    if (appSettings["canvasUpdateMode"] == "Full")
+    if (appSettings["canvasUpdateMode"] == tr("Full"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
     }
-    else if (appSettings["canvasUpdateMode"] == "Minimal")
+    else if (appSettings["canvasUpdateMode"] == tr("Minimal"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
     }
-    else if (appSettings["canvasUpdateMode"] == "Smart")
+    else if (appSettings["canvasUpdateMode"] == tr("Smart"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
     }
-    else if (appSettings["canvasUpdateMode"] == "Bounding Rectangle")
+    else if (appSettings["canvasUpdateMode"] == tr("Bounding Rectangle"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     }
-    else if (appSettings["canvasUpdateMode"] == "None")
+    else if (appSettings["canvasUpdateMode"] == tr("None"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::NoViewportUpdate);
     }
@@ -87,7 +87,7 @@ void MainWindow::initView()
     }
 
     // QGraphicsView can cache pre-rendered content in a QPixmap, which is then drawn onto the viewport.
-    if (appSettings["canvasCacheBackground"] == "true")
+    if (appSettings["canvasCacheBackground"] == tr("true"))
     {
         graphicsWidget->setCacheMode(QGraphicsView::CacheBackground);
     }
@@ -564,10 +564,10 @@ void MainWindow::initApp()
     activeGraph->edgeColorInit(appSettings["initEdgeColor"]);
     activeGraph->edgeColorZeroInit(appSettings["initEdgeColorZero"]); // #30
     activeGraph->showZeroWeightEdgesSet(
-        appSettings["showZeroWeightEdges"] == "true"); // #30
+        appSettings["showZeroWeightEdges"] == tr("true")); // #30
 
     activeGraph->edgeWeightNumbersVisibilitySet(
-        (appSettings["initEdgeWeightNumbersVisibility"] == "true") ? true : false);
+        (appSettings["initEdgeWeightNumbersVisibility"] == tr("true")) ? true : false);
     activeGraph->setReportsRealNumberPrecision(appSettings["initReportsRealNumberPrecision"].toInt());
 
     activeGraph->setReportsLabelLength(appSettings["initReportsLabelsLength"].toInt());
@@ -586,14 +586,14 @@ void MainWindow::initApp()
 
     graphicsWidget->setInitNodeSize(appSettings["initNodeSize"].toInt(0, 10));
     graphicsWidget->setNodeNumberVisibility(
-        (appSettings["initNodeNumbersVisibility"] == "true") ? true : false);
+        (appSettings["initNodeNumbersVisibility"] == tr("true")) ? true : false);
     graphicsWidget->setNodeLabelsVisibility(
-        (appSettings["initNodeLabelsVisibility"] == "true") ? true : false);
+        (appSettings["initNodeLabelsVisibility"] == tr("true")) ? true : false);
 
     graphicsWidget->setNumbersInsideNodes(
-        (appSettings["initNodeNumbersInside"] == "true") ? true : false);
+        (appSettings["initNodeNumbersInside"] == tr("true")) ? true : false);
     graphicsWidget->setEdgeHighlighting(
-        (appSettings["canvasEdgeHighlighting"] == "true") ? true : false);
+        (appSettings["canvasEdgeHighlighting"] == tr("true")) ? true : false);
     graphicsWidget->setEdgeArrowSize(appSettings["initEdgeArrowSize"].toInt(nullptr, 10));
     graphicsWidget->setEdgesBezier(appSettings["initEdgeShape"] == "bezier");
     drawEdgesBezier->setChecked(appSettings["initEdgeShape"] == "bezier");
@@ -647,14 +647,14 @@ void MainWindow::initApp()
     toolBoxLayoutForceDirectedSelect->blockSignals(false);
 
     optionsEdgeWeightNumbersAct->setChecked(
-        (appSettings["initEdgeWeightNumbersVisibility"] == "true") ? true : false);
+        (appSettings["initEdgeWeightNumbersVisibility"] == tr("true")) ? true : false);
     optionsEdgeWeightConsiderAct->setChecked(false);
 
     optionsEdgeArrowsAct->setChecked(
-        (appSettings["initEdgeArrows"] == "true") ? true : false);
+        (appSettings["initEdgeArrows"] == tr("true")) ? true : false);
 
     optionsEdgeLabelsAct->setChecked(
-        (appSettings["initEdgeLabelsVisibility"] == "true") ? true : false);
+        (appSettings["initEdgeLabelsVisibility"] == tr("true")) ? true : false);
     editFilterNodesIsolatesAct->setChecked(false); // re-init orphan nodes menu item
 
     editFilterEdgesUnilateralAct->setChecked(false);
@@ -675,7 +675,7 @@ void MainWindow::initApp()
 
     setCursor(Qt::ArrowCursor);
 
-    setWindowTitle("SocNetV");
+    setWindowTitle(tr("SocNetV"));
 
     filterNodesRestoreAllAct->setEnabled(false);
     editSubgraphExtractFromSelectionAct->setEnabled(false);

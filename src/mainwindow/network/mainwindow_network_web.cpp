@@ -192,116 +192,116 @@ void MainWindow::slotNetworkManagerReplyError(const QNetworkReply::NetworkError 
     switch (code)
     {
     case QNetworkReply::NoError:
-        errorMsg = "No error message!";
+        errorMsg = tr("No error message!");
         break;
     case QNetworkReply::ConnectionRefusedError:
-        errorMsg = "the remote server refused the connection (the server is not accepting requests)";
+        errorMsg = tr("the remote server refused the connection (the server is not accepting requests)");
         break;
     case QNetworkReply::RemoteHostClosedError:
-        errorMsg = "the remote server closed the connection prematurely, before the entire reply was received and processed";
+        errorMsg = tr("the remote server closed the connection prematurely, before the entire reply was received and processed");
         break;
     case QNetworkReply::HostNotFoundError:
-        errorMsg = "the remote host name was not found (invalid hostname)";
+        errorMsg = tr("the remote host name was not found (invalid hostname)");
         break;
     case QNetworkReply::TimeoutError:
-        errorMsg = "the connection to the remote server timed out";
+        errorMsg = tr("the connection to the remote server timed out");
         break;
     case QNetworkReply::OperationCanceledError:
-        errorMsg = "the operation was canceled via calls to abort() or close() before it was finished.";
+        errorMsg = tr("the operation was canceled via calls to abort() or close() before it was finished.");
         break;
     case QNetworkReply::SslHandshakeFailedError:
-        errorMsg = "the SSL/TLS handshake failed and the encrypted channel could not be established. The sslErrors() signal should have been emitted.";
+        errorMsg = tr("the SSL/TLS handshake failed and the encrypted channel could not be established. The sslErrors() signal should have been emitted.");
         break;
     case QNetworkReply::TemporaryNetworkFailureError:
-        errorMsg = "the connection was broken due to disconnection from the network, however the system has initiated roaming to another access point. The request should be resubmitted and will be processed as soon as the connection is re-established.";
+        errorMsg = tr("the connection was broken due to disconnection from the network, however the system has initiated roaming to another access point. The request should be resubmitted and will be processed as soon as the connection is re-established.");
         break;
     case QNetworkReply::NetworkSessionFailedError:
-        errorMsg = "the connection was broken due to disconnection from the network or failure to start the network.";
+        errorMsg = tr("the connection was broken due to disconnection from the network or failure to start the network.");
         break;
     case QNetworkReply::BackgroundRequestNotAllowedError:
-        errorMsg = "the background request is not currently allowed due to platform policy.";
+        errorMsg = tr("the background request is not currently allowed due to platform policy.");
         break;
     case QNetworkReply::TooManyRedirectsError:
-        errorMsg = "while following redirects, the maximum limit was reached. The limit is by default set to 50 or as set by QNetworkRequest::setMaxRedirectsAllowed(). (This value was introduced in 5.6.)";
+        errorMsg = tr("while following redirects, the maximum limit was reached. The limit is by default set to 50 or as set by QNetworkRequest::setMaxRedirectsAllowed(). (This value was introduced in 5.6.)");
         break;
     case QNetworkReply::InsecureRedirectError:
-        errorMsg = "while following redirects, the network access API detected a redirect from a encrypted protocol (https) to an unencrypted one (http). (This value was introduced in 5.6.)";
+        errorMsg = tr("while following redirects, the network access API detected a redirect from a encrypted protocol (https) to an unencrypted one (http). (This value was introduced in 5.6.)");
         break;
     case QNetworkReply::ProxyConnectionRefusedError:
-        errorMsg = "the connection to the proxy server was refused (the proxy server is not accepting requests)";
+        errorMsg = tr("the connection to the proxy server was refused (the proxy server is not accepting requests)");
         break;
     case QNetworkReply::ProxyConnectionClosedError:
-        errorMsg = "the proxy server closed the connection prematurely, before the entire reply was received and processed";
+        errorMsg = tr("the proxy server closed the connection prematurely, before the entire reply was received and processed");
         break;
     case QNetworkReply::ProxyNotFoundError:
-        errorMsg = "the proxy host name was not found (invalid proxy hostname)";
+        errorMsg = tr("the proxy host name was not found (invalid proxy hostname)");
         break;
     case QNetworkReply::ProxyTimeoutError:
-        errorMsg = "the connection to the proxy timed out or the proxy did not reply in time to the request sent";
+        errorMsg = tr("the connection to the proxy timed out or the proxy did not reply in time to the request sent");
         break;
     case QNetworkReply::ProxyAuthenticationRequiredError:
-        errorMsg = "the proxy requires authentication in order to honour the request but did not accept any credentials offered (if any)";
+        errorMsg = tr("the proxy requires authentication in order to honour the request but did not accept any credentials offered (if any)");
         break;
     case QNetworkReply::ContentAccessDenied:
-        errorMsg = "the access to the remote content was denied (similar to HTTP error 403)";
+        errorMsg = tr("the access to the remote content was denied (similar to HTTP error 403)");
         break;
     case QNetworkReply::ContentOperationNotPermittedError:
-        errorMsg = "the operation requested on the remote content is not permitted";
+        errorMsg = tr("the operation requested on the remote content is not permitted");
         break;
     case QNetworkReply::ContentNotFoundError:
-        errorMsg = "the remote content was not found at the server (similar to HTTP error 404)";
+        errorMsg = tr("the remote content was not found at the server (similar to HTTP error 404)");
         break;
     case QNetworkReply::AuthenticationRequiredError:
-        errorMsg = "the remote server requires authentication to serve the content but the credentials provided were not accepted (if any)";
+        errorMsg = tr("the remote server requires authentication to serve the content but the credentials provided were not accepted (if any)");
         break;
     case QNetworkReply::ContentReSendError:
-        errorMsg = "the request needed to be sent again, but this failed for example because the upload data could not be read a second time.";
+        errorMsg = tr("the request needed to be sent again, but this failed for example because the upload data could not be read a second time.");
         break;
     case QNetworkReply::ContentConflictError:
-        errorMsg = "the request could not be completed due to a conflict with the current state of the resource.";
+        errorMsg = tr("the request could not be completed due to a conflict with the current state of the resource.");
         break;
     case QNetworkReply::ContentGoneError:
-        errorMsg = "the requested resource is no longer available at the server.";
+        errorMsg = tr("the requested resource is no longer available at the server.");
         break;
     case QNetworkReply::InternalServerError:
-        errorMsg = "the server encountered an unexpected condition which prevented it from fulfilling the request.";
+        errorMsg = tr("the server encountered an unexpected condition which prevented it from fulfilling the request.");
         break;
     case QNetworkReply::OperationNotImplementedError:
-        errorMsg = "the server does not support the functionality required to fulfill the request.";
+        errorMsg = tr("the server does not support the functionality required to fulfill the request.");
         break;
     case QNetworkReply::ServiceUnavailableError:
-        errorMsg = "the server is unable to handle the request at this time.";
+        errorMsg = tr("the server is unable to handle the request at this time.");
         break;
     case QNetworkReply::ProtocolUnknownError:
-        errorMsg = "the Network Access API cannot honor the request because the protocol is not known";
+        errorMsg = tr("the Network Access API cannot honor the request because the protocol is not known");
         break;
     case QNetworkReply::ProtocolInvalidOperationError:
-        errorMsg = "the requested operation is invalid for this protocol";
+        errorMsg = tr("the requested operation is invalid for this protocol");
         break;
     case QNetworkReply::UnknownNetworkError:
-        errorMsg = "an unknown network-related error was detected";
+        errorMsg = tr("an unknown network-related error was detected");
         break;
     case QNetworkReply::UnknownProxyError:
-        errorMsg = "an unknown proxy-related error was detected";
+        errorMsg = tr("an unknown proxy-related error was detected");
         break;
     case QNetworkReply::UnknownContentError:
-        errorMsg = "an unknown error related to the remote content was detected";
+        errorMsg = tr("an unknown error related to the remote content was detected");
         break;
     case QNetworkReply::ProtocolFailure:
-        errorMsg = "a breakdown in protocol was detected (parsing error, invalid or unexpected responses, etc.)";
+        errorMsg = tr("a breakdown in protocol was detected (parsing error, invalid or unexpected responses, etc.)");
         break;
     case QNetworkReply::UnknownServerError:
-        errorMsg = "an unknown error related to the server response was detected";
+        errorMsg = tr("an unknown error related to the server response was detected");
         break;
     }
 #endif
 
-    slotHelpMessageToUserError("Network Error!  \n\n"
-                               "Request to: '" +
-                               reply->request().url().toString() + "' encountered this error: \n\n" +
+    slotHelpMessageToUserError(tr("Network Error!  \n\n"
+                                  "Request to: '") +
+                               reply->request().url().toString() + tr("' encountered this error: \n\n") +
                                replyErrorMsg + "\n\n" +
-                               "Error description: \n\n" + errorMsg +
-                               "\n\nPlease, try again. ");
+                               tr("Error description: \n\n") + errorMsg +
+                               tr("\n\nPlease, try again. "));
 }
 
 /**
@@ -322,8 +322,8 @@ void MainWindow::slotNetworkManagerSslErrors(QNetworkReply *reply, const QList<Q
     }
 
     // Show the user a message box
-    slotHelpMessageToUserError("SSL Error! \n\n"
-                               "Request to: '" +
-                               reply->request().url().toString() + "' encountered this SSL error: \n\n" + sslErrorString +
-                               "\n\n Please, try again later. ");
+    slotHelpMessageToUserError(tr("SSL Error! \n\n"
+                                  "Request to: '") +
+                               reply->request().url().toString() + tr("' encountered this SSL error: \n\n") + sslErrorString +
+                               tr("\n\n Please, try again later. "));
 }

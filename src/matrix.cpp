@@ -28,6 +28,7 @@
 #include <QLoggingCategory>
 #include <QtMath>		//needed for fabs, qFloor etc
 #include <QTextStream>
+#include <QCoreApplication>
 
 Q_LOGGING_CATEGORY(lcMatrix, "socnetv.matrix")
 
@@ -1632,7 +1633,7 @@ Matrix& Matrix::distancesMatrix(const int &metric,
     qreal distTemp = 0;
     qreal ties = 0;
     qreal max = 0 ; // for Chebyshev metric
-    if (varLocation=="Rows") {
+    if (varLocation==QCoreApplication::translate("SocNetV", "Rows")) {
 
         N = rows() ;
 
@@ -1741,7 +1742,7 @@ Matrix& Matrix::distancesMatrix(const int &metric,
         }
 
     }
-    else if (varLocation=="Columns") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Columns")) {
 
         N = rows() ;
 
@@ -1851,7 +1852,7 @@ Matrix& Matrix::distancesMatrix(const int &metric,
         }
 
     }
-    else if (varLocation=="Both") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Both")) {
         Matrix CM;
         N = rows() ;
         int M = N * 2; // CM will have double rows
@@ -2028,7 +2029,7 @@ Matrix& Matrix::similarityMatrix(Matrix &AM,
     qreal matches = 0;
     qreal ties = 0;
     qreal magn_i=0, magn_k=0;
-    if (varLocation=="Rows") {
+    if (varLocation==QCoreApplication::translate("SocNetV", "Rows")) {
 
         N = AM.rows() ;
 
@@ -2139,7 +2140,7 @@ Matrix& Matrix::similarityMatrix(Matrix &AM,
         }
 
     }
-    else if (varLocation=="Columns") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Columns")) {
 
         N = AM.rows() ;
 
@@ -2249,7 +2250,7 @@ Matrix& Matrix::similarityMatrix(Matrix &AM,
         }
 
     }
-    else if (varLocation=="Both") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Both")) {
         Matrix CM;
         N = AM.rows() ;
         int M = N * 2; // CM will have double rows
@@ -2415,7 +2416,7 @@ Matrix& Matrix::pearsonCorrelationCoefficients(Matrix &AM,
     qreal pcc = 0;
 
 
-    if (varLocation=="Rows") {
+    if (varLocation==QCoreApplication::translate("SocNetV", "Rows")) {
 
         N = AM.rows() ;
 
@@ -2511,7 +2512,7 @@ Matrix& Matrix::pearsonCorrelationCoefficients(Matrix &AM,
         }
 
     }
-    else if (varLocation=="Columns") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Columns")) {
 
 
         N = AM.rows() ;
@@ -2596,7 +2597,7 @@ Matrix& Matrix::pearsonCorrelationCoefficients(Matrix &AM,
         }
 
     }
-    else if (varLocation=="Both") {
+    else if (varLocation==QCoreApplication::translate("SocNetV", "Both")) {
         Matrix CM;
 
         N = AM.rows() ;
@@ -2737,19 +2738,19 @@ QTextStream& operator <<  (QTextStream& os, Matrix& m){
 
     os << qSetFieldWidth(0) << Qt::endl ;
 
-    os << "- Values:        "
-       << ( (hasRealNumbers) ? ("real numbers (printed decimals 3)") : ("integers only" ) ) << Qt::endl;
+    os << QCoreApplication::translate("Matrix", "- Values:        ")
+       << ( (hasRealNumbers) ? QCoreApplication::translate("Matrix", "real numbers (printed decimals 3)") : QCoreApplication::translate("Matrix", "integers only") ) << Qt::endl;
 
-    os << "- Max value:  ";
+    os << QCoreApplication::translate("Matrix", "- Max value:  ");
 
     if ( maxVal==RAND_MAX )
-        os <<  infinity << " (=not connected nodes, in distance matrix)";
+        os <<  infinity << QCoreApplication::translate("Matrix", " (=not connected nodes, in distance matrix)");
     else
         os <<   maxVal;
 
     os << qSetFieldWidth(0) << Qt::endl ;
 
-    os << "- Min value:   ";
+    os << QCoreApplication::translate("Matrix", "- Min value:   ");
 
     if ( minVal==RAND_MAX )
         os << infinity;
@@ -2959,23 +2960,23 @@ bool Matrix::printHTMLTable(QTextStream& os,
 
     os << "<p>"
        << "<span class=\"info\">"
-       << ("Values: ")
+       << QCoreApplication::translate("Matrix", "Values: ")
        <<"</span>"
-       << ( (hasRealNumbers) ? ("real numbers (printed decimals 3)") : ("integers only" ) )
+       << ( (hasRealNumbers) ? QCoreApplication::translate("Matrix", "real numbers (printed decimals 3)") : QCoreApplication::translate("Matrix", "integers only") )
        << "<br />"
        << "<span class=\"info\">"
-       << ("- Max value: ")
+       << QCoreApplication::translate("Matrix", "- Max value: ")
        <<"</span>"
        << ( ( maxVal==RAND_MAX ) ?
                 ( (printInfinity) ? infinity : QString::number(maxVal) ) +
-                " (=not connected nodes, in distance matrix)" : QString::number(maxVal) )
+                QCoreApplication::translate("Matrix", " (=not connected nodes, in distance matrix)") : QString::number(maxVal) )
        << "<br />"
        << "<span class=\"info\">"
-       << ("- Min value: ")
+       << QCoreApplication::translate("Matrix", "- Min value: ")
        <<"</span>"
        << ( ( minVal==RAND_MAX ) ?
                 ( (printInfinity) ? infinity : QString::number(minVal) ) +
-                + " (usually denotes unconnected nodes, in distance matrix)" : QString::number(minVal ) )
+                QCoreApplication::translate("Matrix", " (usually denotes unconnected nodes, in distance matrix)") : QString::number(minVal ) )
        << "</p>";
 
     return true;

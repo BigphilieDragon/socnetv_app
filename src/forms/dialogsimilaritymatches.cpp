@@ -15,6 +15,7 @@
 
  
 #include "dialogsimilaritymatches.h"
+#include <QCoreApplication>
 
 #include <QDebug>
 #include "forms_logging.h"
@@ -28,19 +29,19 @@ DialogSimilarityMatches::DialogSimilarityMatches (QWidget *parent) : QDialog (pa
     (ui.buttonBox)->button (QDialogButtonBox::Ok)->setDefault(true);
 
     matrixList
-            << "Adjacency"
-            << "Distances";
+            << QCoreApplication::translate("SocNetV", "Adjacency")
+            << QCoreApplication::translate("SocNetV", "Distances");
 
     variablesLocationList
-            << "Rows"
-            << "Columns"
-            << "Both";
+            << QCoreApplication::translate("SocNetV", "Rows")
+            << QCoreApplication::translate("SocNetV", "Columns")
+            << QCoreApplication::translate("SocNetV", "Both");
 
-    measureList << "Simple / Exact matching"
-                <<"Jaccard index"
-                <<"Hamming distance"
-                <<"Cosine similarity"
-                <<"Euclidean distance";
+    measureList << tr("Simple / Exact matching")
+                <<tr("Jaccard index")
+                <<tr("Hamming distance")
+                <<tr("Cosine similarity")
+                <<tr("Euclidean distance");
 
 
     ui.matrixSelect->insertItems( 1, matrixList );

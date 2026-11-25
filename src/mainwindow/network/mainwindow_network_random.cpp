@@ -179,7 +179,7 @@ void MainWindow::slotNetworkRandomErdosRenyi(const int newNodes,
                 statusMessage(tr("Erdős–Rényi network creation cancelled or did not finish."));
                 return;
             }
-            setWindowTitle("Untitled Erdos-Renyi random network");
+            setWindowTitle(tr("Untitled Erdos-Renyi random network"));
             double threshold = log(newNodes) / newNodes;
             if ((eprob) > threshold)
                 slotHelpMessageToUser(
@@ -262,7 +262,7 @@ void MainWindow::slotNetworkRandomScaleFree(const int &newNodes,
                 statusMessage(tr("Scale-free network creation cancelled or did not finish."));
                 return;
             }
-            setWindowTitle("Untitled scale-free network");
+            setWindowTitle(tr("Untitled scale-free network"));
             slotHelpMessageToUser(
                 USER_MSG_INFO,
                 tr("Scale-free random network created."),
@@ -327,7 +327,7 @@ void MainWindow::slotNetworkRandomSmallWorld(const int &newNodes,
                 statusMessage(tr("Small-world network creation cancelled or did not finish."));
                 return;
             }
-            setWindowTitle("Untitled small-world network");
+            setWindowTitle(tr("Untitled small-world network"));
             slotHelpMessageToUser(
                 USER_MSG_INFO,
                 tr("Small-World random network created."),
@@ -387,7 +387,7 @@ void MainWindow::slotNetworkRandomRegular(const int &newNodes, const int &degree
                 statusMessage(tr("d-regular network creation cancelled or did not finish."));
                 return;
             }
-            setWindowTitle("Untitled d-regular network");
+            setWindowTitle(tr("Untitled d-regular network"));
             slotHelpMessageToUser(
                 USER_MSG_INFO,
                 tr("d-regular network created."),
@@ -421,7 +421,7 @@ void MainWindow::slotNetworkRandomRingLattice()
     }
 
     bool ok;
-    statusMessage("You have selected to create a ring lattice network. ");
+    statusMessage(tr("You have selected to create a ring lattice network. "));
     int newNodes = (QInputDialog::getInt(
         this,
         tr("Create ring lattice"),
@@ -432,7 +432,7 @@ void MainWindow::slotNetworkRandomRingLattice()
         100, 4, maxRandomlyCreatedNodes, 1, &ok));
     if (!ok)
     {
-        statusMessage("You did not enter an integer. Aborting.");
+        statusMessage(tr("You did not enter an integer. Aborting."));
         return;
     }
 
@@ -471,7 +471,7 @@ void MainWindow::slotNetworkRandomRingLattice()
             {
                 return;
             }
-            setWindowTitle("Untitled ring-lattice network");
+            setWindowTitle(tr("Untitled ring-lattice network"));
             slotHelpMessageToUser(
                 USER_MSG_INFO,
                 tr("Ring lattice random network created."),
@@ -536,7 +536,7 @@ void MainWindow::slotNetworkRandomLattice(const int &newNodes,
                 statusMessage(tr("Lattice network creation cancelled or did not finish."));
                 return;
             }
-            setWindowTitle("Untitled lattice network");
+            setWindowTitle(tr("Untitled lattice network"));
             slotHelpMessageToUser(
                 USER_MSG_INFO,
                 tr("Lattice random network created."),

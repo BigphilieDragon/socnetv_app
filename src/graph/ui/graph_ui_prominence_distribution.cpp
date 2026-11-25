@@ -85,7 +85,7 @@ void Graph::uiProminenceDistributionSpline(const QVector<QPair<qreal, qreal>> &p
         auto *chartView = new QChartView(chart);
 
         chart->addSeries(series1);
-        chart->setTitle(series1->name() + " distribution");
+        chart->setTitle(series1->name() + tr(" distribution"));
         chart->setTitleFont(QFont("Times", 12));
         chart->legend()->hide();
 
@@ -178,7 +178,7 @@ void Graph::uiProminenceDistributionArea(const QVector<QPair<qreal, qreal>> &poi
 
         chart->addSeries(series1);
 
-        chart->setTitle(series->name() + " distribution");
+        chart->setTitle(series->name() + tr(" distribution"));
         chart->setTitleFont(QFont("Times", 12));
         chart->legend()->hide();
 
@@ -279,7 +279,7 @@ void Graph::uiProminenceDistributionBars(const QStringList &categories,
         auto *chartView = new QChartView(chart);
 
         chart->addSeries(series1);
-        chart->setTitle(series->name() + " distribution");
+        chart->setTitle(series->name() + tr(" distribution"));
         chart->setTitleFont(QFont("Times", 12));
         chart->legend()->hide();
 

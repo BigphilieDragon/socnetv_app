@@ -15,6 +15,7 @@
 
 
 #include "dialognodefind.h"
+#include <QCoreApplication>
 #include "ui_dialognodefind.h"
 
 #include <QDebug>
@@ -40,8 +41,8 @@ DialogNodeFind::DialogNodeFind(QWidget *parent, QStringList indexList) :
     // score, so vertexFindByIndexScore() doesn't support either - excluded here the same way
     // "Clustering Coefficient" is excluded from the Prominence combo box
     // (mainwindow_init_panels.cpp).
-    indexList.removeAll("Signed Degree Centrality");
-    indexList.removeAll("PN Centrality");
+    indexList.removeAll(QCoreApplication::translate("MainWindow", "Signed Degree Centrality"));
+    indexList.removeAll(QCoreApplication::translate("MainWindow", "PN Centrality"));
     ui->indexCombo->insertItems(0, indexList);
     ui->indexLabel->setEnabled(false);
     ui->indexCombo->setEnabled(false);
@@ -112,19 +113,19 @@ void DialogNodeFind::checkErrors()
             << textEntered;
 
     if ( ui->numbersRadioBtn->isChecked() ) {
-        ui->textEditLabel->setText("Search for these numbers (enter line by line or csv):");
+        ui->textEditLabel->setText(tr("Search for these numbers (enter line by line or csv):"));
         searchType = "numbers";
         ui->indexLabel->setEnabled(false);
         ui->indexCombo->setEnabled(false);
     }
     else if ( ui->labelsRadioBtn->isChecked() ) {
-        ui->textEditLabel->setText("Search for these labels (enter line by line or csv):");
+        ui->textEditLabel->setText(tr("Search for these labels (enter line by line or csv):"));
         searchType = "labels";
         ui->indexLabel->setEnabled(false);
         ui->indexCombo->setEnabled(false);
     }
     else if ( ui->indexRadioBtn->isChecked() ) {
-        ui->textEditLabel->setText("Search for nodes with this index score (i.e. > 0.5)");
+        ui->textEditLabel->setText(tr("Search for nodes with this index score (i.e. > 0.5)"));
         ui->indexLabel->setEnabled(true);
         ui->indexCombo->setEnabled(true);
         searchType = "score";

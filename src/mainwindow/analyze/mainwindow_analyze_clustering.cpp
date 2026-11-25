@@ -59,7 +59,7 @@ void MainWindow::slotAnalyzeReciprocity()
                 statusMessage(tr("Computation canceled, or could not write to file."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -105,7 +105,7 @@ void MainWindow::slotAnalyzeClusteringCoefficient()
             {
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -151,7 +151,7 @@ void MainWindow::slotAnalyzeCommunitiesTriadCensus()
             {
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

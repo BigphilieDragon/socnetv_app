@@ -15,6 +15,7 @@
  
 
 #include "dialogsimilaritypearson.h"
+#include <QCoreApplication>
 
 #include <QDebug>
 #include "forms_logging.h"
@@ -28,13 +29,13 @@ DialogSimilarityPearson::DialogSimilarityPearson (QWidget *parent) : QDialog (pa
     (ui.buttonBox)->button (QDialogButtonBox::Ok)->setDefault(true);
 
     matrixList
-            << "Adjacency"
-            << "Distances";
+            << QCoreApplication::translate("SocNetV", "Adjacency")
+            << QCoreApplication::translate("SocNetV", "Distances");
 
     variablesLocationList
-            << "Rows"
-            << "Columns"
-            << "Both";
+            << QCoreApplication::translate("SocNetV", "Rows")
+            << QCoreApplication::translate("SocNetV", "Columns")
+            << QCoreApplication::translate("SocNetV", "Both");
 
     (ui.matrixSelect)->insertItems( 1, matrixList );
     (ui.variablesLocationSelect)->insertItems( 1, variablesLocationList );

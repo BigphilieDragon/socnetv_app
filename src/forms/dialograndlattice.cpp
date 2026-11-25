@@ -29,7 +29,7 @@ DialogRandLattice::DialogRandLattice(QWidget *parent) : QDialog(parent)
 {
     ui.setupUi(this);
 
-    ui.circularCheckBox->setText("false");
+    ui.circularCheckBox->setText(tr("false"));
     ui.nodesSpinBox->setEnabled(false);
 
     connect ( ui.circularCheckBox, &QCheckBox::toggled ,
@@ -49,10 +49,10 @@ DialogRandLattice::DialogRandLattice(QWidget *parent) : QDialog(parent)
 
 void DialogRandLattice::circularChanged(const bool &toggle) {
     if (toggle) {
-        ui.circularCheckBox->setText("true");
+        ui.circularCheckBox->setText(tr("true"));
     }
     else {
-        ui.circularCheckBox->setText("false");
+        ui.circularCheckBox->setText(tr("false"));
     }
 
 }

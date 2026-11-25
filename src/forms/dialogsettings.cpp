@@ -55,7 +55,7 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
     ui->dataDirEdit->setText(  (m_appSettings)["dataDir"]);
 
     ui->printLogoChkBox->setChecked(
-                (appSettings["printLogo"] == "true") ? true:false
+                (appSettings["printLogo"] == tr("true")) ? true:false
                 );
 
     // reports
@@ -67,24 +67,24 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
 
 
     QStringList chartTypesList;
-    chartTypesList << "None" << "Lines" << "Area" << "Bars" ;
+    chartTypesList << tr("None") << tr("Lines") << tr("Area") << tr("Bars") ;
     ui->reportsChartTypeSelect->addItems(chartTypesList);
 
     switch (appSettings["initReportsChartType"].toInt()) {
     case ChartType::None:
-        ui->reportsChartTypeSelect->setCurrentText( "None");
+        ui->reportsChartTypeSelect->setCurrentText( tr("None"));
         break;
     case ChartType::Spline:
-        ui->reportsChartTypeSelect->setCurrentText( "Lines");
+        ui->reportsChartTypeSelect->setCurrentText( tr("Lines"));
         break;
     case ChartType::Area:
-        ui->reportsChartTypeSelect->setCurrentText( "Area");
+        ui->reportsChartTypeSelect->setCurrentText( tr("Area"));
         break;
     case ChartType::Bars:
-        ui->reportsChartTypeSelect->setCurrentText( "Bars");
+        ui->reportsChartTypeSelect->setCurrentText( tr("Bars"));
         break;
     default:
-        ui->reportsChartTypeSelect->setCurrentText( "Lines");
+        ui->reportsChartTypeSelect->setCurrentText( tr("Lines"));
         break;
     }
 
@@ -92,7 +92,7 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
              << ui->reportsChartTypeSelect->currentText();
 
     QStringList outputFormatsList;
-    outputFormatsList << "HTML" << "CSV";
+    outputFormatsList << tr("HTML") << tr("CSV");
     ui->reportsOutputFormatSelect->addItems(outputFormatsList);
     ui->reportsOutputFormatSelect->setCurrentIndex(
                 (appSettings["initReportsOutputFormat"].toInt() == ReportFormat::Csv) ? 1 : 0);
@@ -100,18 +100,18 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
 
     //debugging
     ui->printDebugChkBox->setChecked(
-                (appSettings["printDebug"] == "true") ? true:false
+                (appSettings["printDebug"] == tr("true")) ? true:false
             );
 
     ui->progressDialogChkBox->setChecked(
-                (appSettings["showProgressBar"] == "true") ? true:false
+                (appSettings["showProgressBar"] == tr("true")) ? true:false
                 );
 
     /**
       * Style options
       */
     ui->useCustomStylesheetChkBox->setChecked(
-                (appSettings["useCustomStyleSheet"] == "true") ? true:false
+                (appSettings["useCustomStyleSheet"] == tr("true")) ? true:false
                 );
 
 
@@ -119,11 +119,11 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
      * window options
      */
     ui->leftPanelChkBox->setChecked(
-                ( appSettings["showLeftPanel"] == "true") ? true:false
+                ( appSettings["showLeftPanel"] == tr("true")) ? true:false
                 );
 
     ui->rightPanelChkBox->setChecked(
-                ( appSettings["showRightPanel"] == "true") ? true:false
+                ( appSettings["showRightPanel"] == tr("true")) ? true:false
                 );
 
 
@@ -135,13 +135,13 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
      *  Options (saving, etc)
      **/
     ui->saveZeroWeightEdgesChkBox->setChecked(
-        (appSettings["saveZeroWeightEdges"] == "true") ? true:false
+        (appSettings["saveZeroWeightEdges"] == tr("true")) ? true:false
         );
     ui->showZeroWeightEdgesChkBox->setChecked(  // #30
-        (appSettings["showZeroWeightEdges"] == "true") ? true:false
+        (appSettings["showZeroWeightEdges"] == tr("true")) ? true:false
         );
     // #30: keep color picker in sync with the show-toggle at open time
-    bool showZero = (appSettings["showZeroWeightEdges"] == "true");
+    bool showZero = (appSettings["showZeroWeightEdges"] == tr("true"));
     ui->label_20->setEnabled(showZero);
     ui->edgeColorZeroBtn->setEnabled(showZero);
 
@@ -159,67 +159,67 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
     ui->bgImageSelectEdit->setText((m_appSettings)["initBackgroundImage"]);
 
     ui->canvasUseOpenGLChkBox->setChecked(
-                (appSettings["opengl"] == "true" ) ? true : false );
+                (appSettings["opengl"] == tr("true") ) ? true : false );
     ui->canvasAntialiasingChkBox->setChecked(
-                (appSettings["antialiasing"] == "true") ? true:false
+                (appSettings["antialiasing"] == tr("true")) ? true:false
                 );
 
     ui->canvasAntialiasingAutoAdjustChkBox->setChecked(
-                (appSettings["canvasAntialiasingAutoAdjustment"] == "true") ? true:false
+                (appSettings["canvasAntialiasingAutoAdjustment"] == tr("true")) ? true:false
                 );
     ui->canvasSmoothPixmapTransformChkBox->setChecked(
-                (appSettings["canvasSmoothPixmapTransform"] == "true") ? true:false
+                (appSettings["canvasSmoothPixmapTransform"] == tr("true")) ? true:false
                 );
 
     ui->canvasSavePainterStateChkBox->setChecked(
-                (appSettings["canvasPainterStateSave"] == "true") ? true:false
+                (appSettings["canvasPainterStateSave"] == tr("true")) ? true:false
                 );
 
     ui->canvasCacheBackgroundChkBox->setChecked(
-                (appSettings["canvasCacheBackground"] == "true") ? true:false
+                (appSettings["canvasCacheBackground"] == tr("true")) ? true:false
                 );
     ui->canvasEdgeHighlightingChkBox->setChecked(
-                (appSettings["canvasEdgeHighlighting"] == "true") ? true:false
+                (appSettings["canvasEdgeHighlighting"] == tr("true")) ? true:false
                 );
 
 
     QStringList optionsList;
-    optionsList << "Full" << "Minimal" << "Smart" << "Bounding Rectangle" << "None";
+    optionsList << tr("Full") << tr("Minimal") << tr("Smart") << tr("Bounding Rectangle") << tr("None");
     ui->canvasUpdateModeSelect->addItems(optionsList);
 
-    if ( appSettings["canvasUpdateMode"] == "Full" ) {
-        ui->canvasUpdateModeSelect->setCurrentText( "Full");
+    if ( appSettings["canvasUpdateMode"] == tr("Full") ) {
+        ui->canvasUpdateModeSelect->setCurrentText( tr("Full"));
     }
-    else if (appSettings["canvasUpdateMode"] == "Minimal" ) {
-        ui->canvasUpdateModeSelect->setCurrentText("Minimal" );
+    else if (appSettings["canvasUpdateMode"] == tr("Minimal") ) {
+        ui->canvasUpdateModeSelect->setCurrentText(tr("Minimal") );
     }
-    else if (appSettings["canvasUpdateMode"] == "Smart" ) {
-        ui->canvasUpdateModeSelect->setCurrentText("Smart" );
+    else if (appSettings["canvasUpdateMode"] == tr("Smart") ) {
+        ui->canvasUpdateModeSelect->setCurrentText(tr("Smart") );
     }
-    else if (appSettings["canvasUpdateMode"] == "Bounding Rectangle" ) {
-        ui->canvasUpdateModeSelect->setCurrentText("Bounding Rectangle" );
+    else if (appSettings["canvasUpdateMode"] == tr("Bounding Rectangle") ) {
+        ui->canvasUpdateModeSelect->setCurrentText(tr("Bounding Rectangle") );
     }
-    else if (appSettings["canvasUpdateMode"] == "None" ) {
-        ui->canvasUpdateModeSelect->setCurrentText("None" );
+    else if (appSettings["canvasUpdateMode"] == tr("None") ) {
+        ui->canvasUpdateModeSelect->setCurrentText(tr("None") );
     }
     else { //
-        ui->canvasUpdateModeSelect->setCurrentText("Minimal" );
+        ui->canvasUpdateModeSelect->setCurrentText(tr("Minimal") );
     }
     qCDebug(lcForms) << "canvasUpdateModeSelect" << appSettings["canvasUpdateMode"];
 
 
     optionsList.clear();
-    optionsList << "BspTreeIndex" << "NoIndex" ;
+    optionsList << tr("BspTreeIndex") << tr("NoIndex") ;
     ui->canvasIndexMethodSelect->addItems(optionsList);
 
-    if ( appSettings["canvasIndexMethod"] == "BspTreeIndex" ) {
-        ui->canvasIndexMethodSelect->setCurrentText( "BspTreeIndex");
+    if ( appSettings["canvasIndexMethod"] == tr("BspTreeIndex") ) {
+        ui->canvasIndexMethodSelect->setCurrentText( tr("BspTreeIndex"));
     }
-    else if (appSettings["canvasIndexMethod"] == "NoIndex" ) {
-        ui->canvasIndexMethodSelect->setCurrentText("NoIndex" );
+    else if (appSettings["canvasIndexMethod"] == tr("NoIndex") ) {
+        ui->canvasIndexMethodSelect->setCurrentText(tr("NoIndex") );
     }
     else { //
-        ui->canvasIndexMethodSelect->setCurrentText("BspTreeIndex" );
+        ui->canvasIndexMethodSelect->setCurrentText(tr("BspTreeIndex") );
     }
     qCDebug(lcForms) << "canvasIndexMethodSelect" << appSettings["canvasIndexMethod"];
 
@@ -282,13 +282,13 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
     ui->nodeSizeSpin->setValue( m_appSettings["initNodeSize"].toInt(0, 10) );
 
     ui->nodeNumbersChkBox->setChecked(
-                ( m_appSettings["initNodeNumbersVisibility"] == "true") ? true : false
+                ( m_appSettings["initNodeNumbersVisibility"] == tr("true")) ? true : false
                 );
 
     ui->nodeNumbersInsideChkBox->setChecked(
-                (m_appSettings["initNodeNumbersInside"] == "true" ) ? true:false
+                (m_appSettings["initNodeNumbersInside"] == tr("true") ) ? true:false
                 );
-    if (m_appSettings["initNodeNumbersInside"] == "true") {
+    if (m_appSettings["initNodeNumbersInside"] == tr("true")) {
         ui->nodeNumberDistanceSpin->setEnabled(false);
         ui->nodeNumberSizeSpin->setValue( 0 );
 
@@ -303,7 +303,7 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
 
 
     ui->nodeLabelsChkBox->setChecked(
-                ( m_appSettings["initNodeLabelsVisibility"] == "true") ? true : false
+                ( m_appSettings["initNodeLabelsVisibility"] == tr("true")) ? true : false
                 );
 
     ui->nodeLabelSizeSpin->setValue( m_appSettings["initNodeLabelSize"].toInt(0, 10) );
@@ -321,11 +321,11 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
      */
 
     ui->edgesChkBox->setChecked(
-                (m_appSettings["initEdgesVisibility"] == "true") ? true: false
+                (m_appSettings["initEdgesVisibility"] == tr("true")) ? true: false
                                                                   );
 
     ui->edgeArrowsChkBox->setChecked(
-                (m_appSettings["initEdgeArrows"] == "true") ? true: false
+                (m_appSettings["initEdgeArrows"] == tr("true")) ? true: false
                                                                    );
 
     ui->edgeArrowSizeSpin->setValue(
@@ -364,7 +364,7 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
     ui->edgeOffsetFromNodeSpin->setValue( m_appSettings["initEdgeOffsetFromNode"].toInt(0, 10) );
 
     ui->edgeWeightNumbersChkBox->setChecked(
-                (m_appSettings["initEdgeWeightNumbersVisibility"] == "true") ? true: false
+                (m_appSettings["initEdgeWeightNumbersVisibility"] == tr("true")) ? true: false
                                                                   );
     m_edgeWeightNumberColor = QColor (m_appSettings["initEdgeWeightNumberColor"]);
     m_pixmap = QPixmap(60,20) ;
@@ -375,7 +375,7 @@ DialogSettings::DialogSettings(QMap<QString, QString> &appSettings,
 
 
     ui->edgeLabelsChkBox->setChecked(
-                (m_appSettings["initEdgeLabelsVisibility"] == "true") ? true: false
+                (m_appSettings["initEdgeLabelsVisibility"] == tr("true")) ? true: false
                                                                         );
 
 

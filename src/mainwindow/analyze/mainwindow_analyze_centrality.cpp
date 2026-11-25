@@ -65,7 +65,7 @@ void MainWindow::slotAnalyzeCentralityDegree()
                 return;
             }
             statusMessage(tr("Opening Out-Degree Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -114,7 +114,7 @@ void MainWindow::slotAnalyzeCentralitySignedDegree()
                 return;
             }
             statusMessage(tr("Opening Signed Degree Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -171,7 +171,7 @@ void MainWindow::slotAnalyzeCentralityPN()
                     return;
                 }
                 statusMessage(tr("Opening PN Centralities report..."));
-                if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+                if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
                 {
                     QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
                 }
@@ -223,7 +223,7 @@ void MainWindow::slotAnalyzeCentralityCloseness()
             if (!*success)
                 return;
             statusMessage(tr("Opening Closeness Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -276,7 +276,7 @@ void MainWindow::slotAnalyzeCentralityClosenessIR()
                 return;
             }
             statusMessage(tr("Opening Influence Range Closeness Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -323,7 +323,7 @@ void MainWindow::slotAnalyzeCentralityBetweenness()
             if (!*success)
                 return;
             statusMessage(tr("Opening Betweenness Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -382,7 +382,7 @@ void MainWindow::slotAnalyzePrestigeDegree()
                 return;
             }
             statusMessage(tr("Opening Degree Prestige (in-degree) report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -430,7 +430,7 @@ void MainWindow::slotAnalyzePrestigePageRank()
                 return;
             }
             statusMessage(tr("Opening PageRank Prestige report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -479,7 +479,7 @@ void MainWindow::slotAnalyzePrestigeProximity()
                 return;
             }
             statusMessage(tr("Opening Proximity Prestige report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -522,7 +522,7 @@ void MainWindow::slotAnalyzeCentralityInformation()
     {
         switch (
             QMessageBox::critical(
-                this, "Slow function warning",
+                this, tr("Slow function warning"),
                 tr("Please note that this function can be <b>SLOW</b> on very large "
                    "networks (n>2000), and cannot currently be canceled once started. <br><br>"
                    "It computes the (n x n) matrix A with: <br>"
@@ -571,7 +571,7 @@ void MainWindow::slotAnalyzeCentralityInformation()
             if (!*success)
                 return;
             statusMessage(tr("Opening Information Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -620,7 +620,7 @@ void MainWindow::slotAnalyzeCentralityEigenvector()
             if (!*success)
                 return;
             statusMessage(tr("Opening Eigenvector Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -670,7 +670,7 @@ void MainWindow::slotAnalyzeCentralityStress()
             if (!*success)
                 return;
             statusMessage(tr("Opening Stress Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -720,7 +720,7 @@ void MainWindow::slotAnalyzeCentralityPower()
             if (!*success)
                 return;
             statusMessage(tr("Opening Gil-Schmidt Power Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -810,7 +810,7 @@ void MainWindow::slotAnalyzeCentralityKatz()
                         if (!*success)
                             return;
                         statusMessage(tr("Opening Katz Centralities report..."));
-                        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+                        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
                         {
                             QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
                         }
@@ -900,7 +900,7 @@ void MainWindow::slotAnalyzeCentralityBonacich()
                         if (!*success)
                             return;
                         statusMessage(tr("Opening Bonacich Power Centralities report..."));
-                        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+                        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
                         {
                             QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
                         }
@@ -954,7 +954,7 @@ void MainWindow::slotAnalyzeCentralityEccentricity()
             if (!*success)
                 return;
             statusMessage(tr("Opening Closeness Centralities report..."));
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

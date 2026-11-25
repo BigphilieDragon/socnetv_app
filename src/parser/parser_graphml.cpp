@@ -567,7 +567,7 @@ void Parser::readGraphMLElementEdge(QXmlStreamAttributes &xmlStreamAttr)
     edgeCustomAttributes.clear();
     bool_edge = true;
 
-    if (edge_directed == "false" || edge_directed.contains("false", Qt::CaseInsensitive))
+    if (edge_directed == tr("false") || edge_directed.contains("false", Qt::CaseInsensitive))
     {
         edgeDirType = EdgeType::Undirected;
         qCDebug(lcParser) << "Edge is UNDIRECTED";

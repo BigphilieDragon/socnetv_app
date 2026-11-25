@@ -218,7 +218,7 @@ void MainWindow::slotNetworkViewSociomatrix()
                 statusMessage(tr("Computation canceled, or could not write to file."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
 
                 qCDebug(lcMainWindow) << "MW::slotNetworkViewSociomatrix() - "
@@ -290,7 +290,7 @@ void MainWindow::slotNetworkViewSociomatrixPlotText()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (appSettings["viewReportsInSystemBrowser"] == "true")
+            if (appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

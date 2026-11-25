@@ -77,21 +77,21 @@ void DialogRandRegular::modifyDegree(int value) {
 void DialogRandRegular::setModeDirected (){
     ui.directedRadioButton->setChecked(true) ;
     ui.undirectedRadioButton->setChecked(false) ;
-    ui.degreeLabel->setText("inDegree=outDegree <em>d</em>");
+    ui.degreeLabel->setText(tr("inDegree=outDegree <em>d</em>"));
 
 }
 
 void DialogRandRegular::setModeUndirected (){
     ui.directedRadioButton->setChecked(false) ;
     ui.undirectedRadioButton->setChecked(true) ;
-    ui.degreeLabel->setText("Degree <em>d</em>");
+    ui.degreeLabel->setText(tr("Degree <em>d</em>"));
 }
 
 void DialogRandRegular::setDiag (){
     if (ui.diagCheckBox->isChecked())
-        ui.diagCheckBox->setText("Yes, allow");
+        ui.diagCheckBox->setText(tr("Yes, allow"));
     else
-        ui.diagCheckBox->setText("No, set zero");
+        ui.diagCheckBox->setText(tr("No, set zero"));
 }
 
 void DialogRandRegular::checkErrors(const int &i) {

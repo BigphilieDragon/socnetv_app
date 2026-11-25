@@ -253,7 +253,7 @@ void MainWindow::slotEditNodeRemove()
                 min, 1, max, 1, &ok);
             if (!ok)
             {
-                statusMessage("Remove node operation cancelled.");
+                statusMessage(tr("Remove node operation cancelled."));
                 return;
             }
         }
@@ -556,7 +556,7 @@ void MainWindow::slotEditNodeSelectedToStar()
         min, 1, max, 1, &ok);
     if (!ok)
     {
-        statusMessage("Create star subgraph cancelled.");
+        statusMessage(tr("Create star subgraph cancelled."));
         return;
     }
 
@@ -671,7 +671,7 @@ void MainWindow::slotEditNodeColorAll(QColor color)
     {
         color = QColorDialog::getColor(QColor(appSettings["initNodeColor"]),
                                        this,
-                                       "Change the color of all nodes");
+                                       tr("Change the color of all nodes"));
     }
     if (color.isValid())
     {
@@ -709,13 +709,13 @@ void MainWindow::slotEditNodeSizeAll(int newSize, const bool &normalized)
         bool ok = true;
         newSize = QInputDialog::getInt(
             this,
-            "Change node size",
+            tr("Change node size"),
             tr("Select new size for all nodes:"),
             appSettings["initNodeSize"].toInt(0, 10), 1, 100, 1, &ok);
 
         if (!ok)
         {
-            statusMessage("Change node size operation cancelled.");
+            statusMessage(tr("Change node size operation cancelled."));
             return;
         }
     }
@@ -758,8 +758,8 @@ void MainWindow::slotEditNodeShape(const int &vertex, QString shape,
             curShapeIndex = 1;
         }
         shape = QInputDialog::getItem(this,
-                                      "Node shape",
-                                      "Select a shape for all nodes: ",
+                                      tr("Node shape"),
+                                      tr("Select a shape for all nodes: "),
                                       nodeShapeList, curShapeIndex, true, &ok);
         if (!ok)
         {
@@ -813,7 +813,7 @@ void MainWindow::slotEditNodeNumberSize(int v1, int newSize, const bool prompt)
     qCDebug(lcMainWindow) << "MW::slotEditNodeNumberSize - newSize " << newSize;
     if (prompt)
     {
-        newSize = QInputDialog::getInt(this, "Change text size",
+        newSize = QInputDialog::getInt(this, tr("Change text size"),
                                        tr("Change all node numbers size to: (1-16)"),
                                        appSettings["initNodeNumberSize"].toInt(0, 10), 1, 16, 1, &ok);
         if (!ok)
@@ -847,7 +847,7 @@ void MainWindow::slotEditNodeNumbersColor(const int &v1, QColor color)
     {
         color = QColorDialog::getColor(QColor(appSettings["initNodeNumberColor"]),
                                        this,
-                                       "Change the color of all node numbers");
+                                       tr("Change the color of all node numbers"));
     }
 
     if (color.isValid())
@@ -889,7 +889,7 @@ void MainWindow::slotEditNodeNumberDistance(int v1, int newDistance)
     if (!newDistance)
     {
         newDistance = QInputDialog::getInt(
-            this, "Change node number distance",
+            this, tr("Change node number distance"),
             tr("Change all node numbers distance from their nodes to: (1-16)"),
             appSettings["initNodeNumberDistance"].toInt(0, 10), 1, 16, 1, &ok);
         if (!ok)
@@ -924,7 +924,7 @@ void MainWindow::slotEditNodeLabelSize(const int v1, int newSize)
     qCDebug(lcMainWindow) << "MW::slotEditNodeLabelSize - newSize " << newSize;
     if (!newSize)
     {
-        newSize = QInputDialog::getInt(this, "Change text size",
+        newSize = QInputDialog::getInt(this, tr("Change text size"),
                                        tr("Change all node labels text size to: (1-16)"),
                                        appSettings["initNodeLabelSize"].toInt(0, 10), 1, 32, 1, &ok);
         if (!ok)
@@ -956,7 +956,7 @@ void MainWindow::slotEditNodeLabelsColor(QColor color)
     {
         color = QColorDialog::getColor(QColor(appSettings["initNodeLabelColor"]),
                                        this,
-                                       "Change the color of all node labels");
+                                       tr("Change the color of all node labels"));
     }
     if (color.isValid())
     {
@@ -990,7 +990,7 @@ void MainWindow::slotEditNodeLabelDistance(int v1, int newDistance)
     if (!newDistance)
     {
         newDistance = QInputDialog::getInt(
-            this, "Change node label distance",
+            this, tr("Change node label distance"),
             tr("Change all node labels distance from their nodes to: (1-16)"),
             appSettings["initNodeLabelDistance"].toInt(0, 10), 1, 16, 1, &ok);
         if (!ok)
@@ -1040,7 +1040,7 @@ void MainWindow::slotEditNodeOpenContextMenu()
     else
     {
         nodeContextMenu->addAction(
-            tr("## NODE ") + QString::number(activeGraph->vertexClicked()) + " ##  " + tr(" (selected nodes: ") + QString::number(nodesSelected) + ")");
+            tr("## NODE ") + QString::number(activeGraph->vertexClicked()) + tr(" ##  ") + tr(" (selected nodes: ") + QString::number(nodesSelected) + ")");
     }
 
     nodeContextMenu->addSeparator();

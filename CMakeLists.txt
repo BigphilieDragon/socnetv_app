@@ -344,6 +344,7 @@ endif()
 set(SOCNETV_TS
     ${CMAKE_SOURCE_DIR}/translations/socnetv_de.ts
     ${CMAKE_SOURCE_DIR}/translations/socnetv_es.ts
+    ${CMAKE_SOURCE_DIR}/translations/socnetv_zh_CN.ts
 )
 
 
@@ -364,6 +365,24 @@ qt_add_lrelease(${TARGET_NAME}
 
 # These are generated during the build
 set_source_files_properties(${SOCNETV_QM} PROPERTIES GENERATED TRUE)
+
+# main.cpp loads translations as "socnetv." + QLocale::name() from the current
+# directory, i.e. socnetv.zh_CN.qm / socnetv.de.qm / socnetv.es.qm.
+# qt_add_lrelease produces "socnetv_<locale>.qm", so copy/rename the results
+# next to the executable (and keep renamed copies for install).
+set(SOCNETV_QM_RENAMED "")
+foreach(TS_FILE ${SOCNETV_TS})
+    get_filename_component(TS_BASENAME "${TS_FILE}" NAME_WE)
+    string(REPLACE "socnetv_" "socnetv." QM_BASENAME "${TS_BASENAME}")
+    set(QM_GENERATED "${CMAKE_CURRENT_BINARY_DIR}/${TS_BASENAME}.qm")
+    set(QM_RENAMED "${CMAKE_CURRENT_BINARY_DIR}/${QM_BASENAME}.qm")
+    add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${QM_GENERATED}" "${QM_RENAMED}"
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different "${QM_RENAMED}" "$<TARGET_FILE_DIR:${TARGET_NAME}>/${QM_BASENAME}.qm"
+        COMMENT "Deploying translation ${QM_BASENAME}.qm"
+    )
+    list(APPEND SOCNETV_QM_RENAMED "${QM_RENAMED}")
+endforeach()
 
 # Add include directories for headers (equivalent to INCLUDEPATH)
 target_include_directories(${TARGET_NAME}  PUBLIC
@@ -440,7 +459,7 @@ if(WIN32)
         RUNTIME DESTINATION release/  # Install to release/ folder
     )
 
-    install(FILES ${SOCNETV_QM}
+    install(FILES ${SOCNETV_QM_RENAMED}
         DESTINATION release/
     )
 
@@ -505,7 +524,7 @@ elseif(UNIX AND NOT APPLE)
     )
 
     # Install translations
-    install(FILES ${SOCNETV_QM}
+    install(FILES ${SOCNETV_QM_RENAMED}
         DESTINATION "${CMAKE_INSTALL_DATADIR}/socnetv"
     )
 

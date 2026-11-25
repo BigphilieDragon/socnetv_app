@@ -37,7 +37,7 @@ DialogExportPDF::DialogExportPDF (QWidget *parent ) :
 
     // Populate printer modes
     QStringList resList;
-    resList << "Screen" << "Print";
+    resList << tr("Screen") << tr("Print");
     ui->qualitySelect->addItems(resList);
 
     // Populate dpi (currently only 75dpi is supported)
@@ -47,7 +47,7 @@ DialogExportPDF::DialogExportPDF (QWidget *parent ) :
     ui->resolutionSelect->setDisabled(true);
 
     QStringList orientationList;
-    orientationList << "Portrait" << "Landscape";
+    orientationList << tr("Portrait") << tr("Landscape");
     ui->orientationSelect->addItems(orientationList);
 
     // Connect dialog signals to slots

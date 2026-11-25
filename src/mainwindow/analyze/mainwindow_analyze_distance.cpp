@@ -56,7 +56,7 @@ void MainWindow::slotAnalyzeDistance()
 
     if (!ok1)
     {
-        statusMessage("Distance calculation operation cancelled.");
+        statusMessage(tr("Distance calculation operation cancelled."));
         return;
     }
 
@@ -497,7 +497,7 @@ void MainWindow::slotAnalyzeGeodesicDistribution()
                 statusMessage(tr("Error: could not write geodesic distribution report."));
                 return;
             }
-            if (appSettings["viewReportsInSystemBrowser"] == "true")
+            if (appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -544,7 +544,7 @@ void MainWindow::slotAnalyzeEccentricity()
         [this, fn, reportFormat, success]() {
             if (!*success)
                 return;
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -574,12 +574,12 @@ void MainWindow::slotAnalyzeWalksLength()
     bool ok = false;
 
     int length = QInputDialog::getInt(
-        this, "Number of walks",
+        this, tr("Number of walks"),
         tr("Select desired length of walk: (2 to %1)").arg(activeNodes() - 1),
         2, 2, activeNodes() - 1, 1, &ok);
     if (!ok)
     {
-        statusMessage("Cancelled.");
+        statusMessage(tr("Cancelled."));
         return;
     }
 
@@ -600,7 +600,7 @@ void MainWindow::slotAnalyzeWalksLength()
                 statusMessage(tr("Computation canceled, or could not write to file."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -630,7 +630,7 @@ void MainWindow::slotAnalyzeWalksTotal()
     {
         switch (QMessageBox::critical(
             this,
-            "Slow function warning",
+            tr("Slow function warning"),
             tr("Please note that this function is VERY SLOW on large networks (n>50), "
                "since it will calculate all powers of the sociomatrix up to n-1 "
                "in order to find out all possible walks. \n\n"
@@ -669,7 +669,7 @@ void MainWindow::slotAnalyzeWalksTotal()
                 statusMessage(tr("Computation canceled, or could not write to file."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -679,6 +679,6 @@ void MainWindow::slotAnalyzeWalksTotal()
                 ed->show();
                 m_textEditors << ed;
             }
-            statusMessage("Total walks matrix saved as: " + QDir::toNativeSeparators(fn));
+            statusMessage(tr("Total walks matrix saved as: ") + QDir::toNativeSeparators(fn));
         });
 }

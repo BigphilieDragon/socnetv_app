@@ -254,39 +254,39 @@ void MainWindow::slotNetworkFileChoose(QString m_fileName,
                 fileTypes, 0, false, &ok);
             if (ok && !userFileType.isEmpty())
             {
-                if (userFileType == "GraphML")
+                if (userFileType == tr("GraphML"))
                 {
                     fileFormat = FileType::GRAPHML;
                 }
-                else if (userFileType == "GraphML")
+                else if (userFileType == tr("GraphML"))
                 {
                     fileFormat = FileType::PAJEK;
                 }
-                else if (userFileType == "GML")
+                else if (userFileType == tr("GML"))
                 {
                     fileFormat = FileType::GML;
                 }
-                else if (userFileType == "UCINET")
+                else if (userFileType == tr("UCINET"))
                 {
                     fileFormat = FileType::UCINET;
                 }
-                else if (userFileType == "Adjacency")
+                else if (userFileType == tr("Adjacency"))
                 {
                     fileFormat = FileType::ADJACENCY;
                 }
-                else if (userFileType == "GraphViz")
+                else if (userFileType == tr("GraphViz"))
                 {
                     fileFormat = FileType::GRAPHVIZ;
                 }
-                else if (userFileType == "Edge List (weighted)")
+                else if (userFileType == tr("Edge List (weighted)"))
                 {
                     fileFormat = FileType::EDGELIST_WEIGHTED;
                 }
-                else if (userFileType == "Edge List (simple, non-weighted)")
+                else if (userFileType == tr("Edge List (simple, non-weighted)"))
                 {
                     fileFormat = FileType::EDGELIST_SIMPLE;
                 }
-                else if (userFileType == "Two-mode sociomatrix")
+                else if (userFileType == tr("Two-mode sociomatrix"))
                 {
                     fileFormat = FileType::TWOMODE;
                 }
@@ -477,7 +477,7 @@ void MainWindow::slotNetworkSave(const int &fileFormat)
 
     fileNameNoPath = fileInfo.fileName();
 
-    bool saveZeroWeightEdges = appSettings["saveZeroWeightEdges"] == "true" ? true : false;
+    bool saveZeroWeightEdges = appSettings["saveZeroWeightEdges"] == tr("true") ? true : false;
 
     bool saveEdgeWeights = true;
 
@@ -938,31 +938,31 @@ void MainWindow::slotNetworkFileLoaded(const int &type,
     case FileType::NOT_SAVED:
         break;
     case FileType::GRAPHML:
-        fileFormatHuman = "GraphML";
+        fileFormatHuman = tr("GraphML");
         break;
     case FileType::PAJEK:
-        fileFormatHuman = "Pajek";
+        fileFormatHuman = tr("Pajek");
         break;
     case FileType::ADJACENCY:
-        fileFormatHuman = "Adjacency";
+        fileFormatHuman = tr("Adjacency");
         break;
     case FileType::GRAPHVIZ:
-        fileFormatHuman = "GraphViz";
+        fileFormatHuman = tr("GraphViz");
         break;
     case FileType::UCINET:
-        fileFormatHuman = "UCINET";
+        fileFormatHuman = tr("UCINET");
         break;
     case FileType::GML:
-        fileFormatHuman = "GML";
+        fileFormatHuman = tr("GML");
         break;
     case FileType::EDGELIST_WEIGHTED:
-        fileFormatHuman = "Weighted list";
+        fileFormatHuman = tr("Weighted list");
         break;
     case FileType::EDGELIST_SIMPLE:
-        fileFormatHuman = "Simple list";
+        fileFormatHuman = tr("Simple list");
         break;
     case FileType::TWOMODE:
-        fileFormatHuman = "Two-mode affiliation";
+        fileFormatHuman = tr("Two-mode affiliation");
         break;
     default: // Every non-expected case
         slotHelpMessageToUser(USER_MSG_CRITICAL,
@@ -1058,7 +1058,7 @@ void MainWindow::slotNetworkChanged(const bool &directed,
             toolBoxEditEdgeModeSelect->setCurrentIndex(1);
             toolBoxEditEdgeModeSelect->blockSignals(false);
         }
-        rightPanelNetworkTypeLCD->setText("Undirected");
+        rightPanelNetworkTypeLCD->setText(tr("Undirected"));
 
         rightPanelEdgesLabel->setText(tr("Edges:"));
 
@@ -1081,7 +1081,7 @@ void MainWindow::slotNetworkChanged(const bool &directed,
                                                   "transform the loaded network (if any) to undirected \n"
                                                   "enable the option Edit->Edges->Undirected"));
 
-        rightPanelNetworkTypeLCD->setText("Directed");
+        rightPanelNetworkTypeLCD->setText(tr("Directed"));
         if (toolBoxEditEdgeModeSelect->currentIndex() == 1)
         {
             // See the matching comment in the "undirected" branch above.

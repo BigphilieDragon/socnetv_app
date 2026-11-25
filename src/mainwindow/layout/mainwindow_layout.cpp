@@ -359,7 +359,7 @@ void MainWindow::slotLayoutRadialByProminenceIndex(QString prominenceIndexName =
     {
         switch (
             QMessageBox::critical(
-                this, "Slow function warning",
+                this, tr("Slow function warning"),
                 tr("Please note that this function is <b>CPU-intensive</b> on large "
                    "networks (n>200), since it will calculate  a (n x n) matrix A with: <br>"
                    "Aii=1+weighted_degree_ni <br>"
@@ -493,7 +493,7 @@ void MainWindow::slotLayoutLevelByProminenceIndex(QString prominenceIndexName = 
     {
         switch (
             QMessageBox::critical(
-                this, "Slow function warning",
+                this, tr("Slow function warning"),
                 tr("Please note that this function is <b>CPU-intensive</b> on large "
                    "networks (n>200), since it will calculate  a (n x n) matrix A with: <br>"
                    "Aii=1+weighted_degree_ni <br>"
@@ -625,7 +625,7 @@ void MainWindow::slotLayoutNodeSizeByProminenceIndex(QString prominenceIndexName
     {
         switch (
             QMessageBox::critical(
-                this, "Slow function warning",
+                this, tr("Slow function warning"),
                 tr("Please note that this function is <b>CPU-intensive</b> on large "
                    "networks (n>200), since it will calculate  a (n x n) matrix A with: <br>"
                    "Aii=1+weighted_degree_ni <br>"
@@ -757,7 +757,7 @@ void MainWindow::slotLayoutNodeColorByProminenceIndex(QString prominenceIndexNam
     {
         switch (
             QMessageBox::critical(
-                this, "Slow function warning",
+                this, tr("Slow function warning"),
                 tr("Please note that this function is <b>CPU-intensive</b> on large "
                    "networks (n>200), since it will calculate  a (n x n) matrix A with: <br>"
                    "Aii=1+weighted_degree_ni <br>"

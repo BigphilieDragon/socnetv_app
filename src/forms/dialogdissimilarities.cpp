@@ -14,6 +14,7 @@
  */
 
 #include "dialogdissimilarities.h"
+#include <QCoreApplication>
 
 #include <QDebug>
 #include "forms_logging.h"
@@ -27,9 +28,9 @@ DialogDissimilarities::DialogDissimilarities (QWidget *parent) : QDialog (parent
     (ui.buttonBox)->button (QDialogButtonBox::Ok)->setDefault(true);
 
     variablesLocationList
-            << "Rows"
-            << "Columns"
-            << "Both";
+            << QCoreApplication::translate("SocNetV", "Rows")
+            << QCoreApplication::translate("SocNetV", "Columns")
+            << QCoreApplication::translate("SocNetV", "Both");
 
     metricList  << tr("Euclidean distance")
                 << tr("Manhattan distance")

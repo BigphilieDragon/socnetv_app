@@ -51,35 +51,35 @@ DialogSystemInfo::DialogSystemInfo (QWidget *parent) :
 //    this->setMinimumHeight(QApplication::primaryScreen()->availableSize().height()/2);
 
     QString information;
-    information += "<b>QT BUILD</b><br><br>";
-    information += "Architecture: <br>" + QSysInfo::buildAbi() + "<br>";
+    information += tr("<b>QT BUILD</b><br><br>");
+    information += tr("Architecture: <br>") + QSysInfo::buildAbi() + "<br>";
     information += "<br><br>";
 
-    information += "<b>SOCNETV BUILD</b><br><br>";
-    information += "DirPath: <br>" + QApplication::applicationDirPath() + "<br><br>";
-    information += "SSL version (at built-time): <br>" +  QSslSocket::sslLibraryBuildVersionString() + "<br>";
+    information += tr("<b>SOCNETV BUILD</b><br><br>");
+    information += tr("DirPath: <br>") + QApplication::applicationDirPath() + "<br><br>";
+    information += tr("SSL version (at built-time): <br>") +  QSslSocket::sslLibraryBuildVersionString() + "<br>";
     information += "<br><br>";
 
-    information += "<b>YOUR SYSTEM</b><br><br>";
-    information += "OS: <br>" + QSysInfo::prettyProductName() + "<br><br>";
-    information += "Kernel: <br>" + QSysInfo::kernelType() + " " + QSysInfo::kernelVersion() + "<br><br>";
-    information += "Architecture: <br>" + QSysInfo::currentCpuArchitecture() + "<br><br>";
+    information += tr("<b>YOUR SYSTEM</b><br><br>");
+    information += tr("OS: <br>") + QSysInfo::prettyProductName() + "<br><br>";
+    information += tr("Kernel: <br>") + QSysInfo::kernelType() + " " + QSysInfo::kernelVersion() + "<br><br>";
+    information += tr("Architecture: <br>") + QSysInfo::currentCpuArchitecture() + "<br><br>";
 
     if ( QSslSocket::supportsSsl() ) {
-        information += "SSL support: <br>yes <br><br>";
-        information += "SSL version (run-time): <br>" + QSslSocket::sslLibraryVersionString() + "<br><br>";
+        information += tr("SSL support: <br>yes <br><br>");
+        information += tr("SSL version (run-time): <br>") + QSslSocket::sslLibraryVersionString() + "<br><br>";
 
-        information += "About web crawler: You are good to go. But please note, you may experience warnings/problems if you have a version of OpenSSL that does not match the one used while building SocNetV ";
+        information += tr("About web crawler: You are good to go. But please note, you may experience warnings/problems if you have a version of OpenSSL that does not match the one used while building SocNetV ");
         information += "(" +  QSslSocket::sslLibraryBuildVersionString() + ")<br>";
     }
     else {
-        information += "SSL support: <br>NO<br><br>";
+        information += tr("SSL support: <br>NO<br><br>");
         #if defined(Q_OS_WIN)
-        information += "About web crawler: If you want to use the web crawler with https:// urls, please install the same (or the closest) version of OpenSSL that was used while building your SocNetV application ";
+        information += tr("About web crawler: If you want to use the web crawler with https:// urls, please install the same (or the closest) version of OpenSSL that was used while building your SocNetV application ");
         information += "(" +  QSslSocket::sslLibraryBuildVersionString() + ")";
-        information += " You may download Win32/Win64 OpenSSL installers from: https://slproweb.com/products/Win32OpenSSL.html <br>";
+        information += tr(" You may download Win32/Win64 OpenSSL installers from: https://slproweb.com/products/Win32OpenSSL.html <br>");
         #else
-        information += "About web crawler: If you want to use the web crawler with https:// urls, please install the same (or the closest) version of OpenSSL that was used while building your SocNetV application ";
+        information += tr("About web crawler: If you want to use the web crawler with https:// urls, please install the same (or the closest) version of OpenSSL that was used while building your SocNetV application ");
         information += "(" +  QSslSocket::sslLibraryBuildVersionString() + "). <br>";
         #endif
     }
@@ -90,13 +90,13 @@ DialogSystemInfo::DialogSystemInfo (QWidget *parent) :
     // because the user might have disabled the OpenGL setting
     if ( QOpenGLContext::currentContext() ) {
         QOpenGLFunctions *qglFunctions = QOpenGLContext::currentContext()->functions();
-        information += "<br>OpenGL: <br>";
-        information += "Vendor: " + getGlString(qglFunctions, GL_VENDOR) + "<br>";
-        information += "Version: " + getGlString(qglFunctions, GL_VERSION) + "<br>";
-        information += "Renderer/Card: " + getGlString(qglFunctions, GL_RENDERER) +  "<br>";
+        information += tr("<br>OpenGL: <br>");
+        information += tr("Vendor: ") + getGlString(qglFunctions, GL_VENDOR) + "<br>";
+        information += tr("Version: ") + getGlString(qglFunctions, GL_VERSION) + "<br>";
+        information += tr("Renderer/Card: ") + getGlString(qglFunctions, GL_RENDERER) +  "<br>";
     }
     else {
-        information += "<br>OpenGL: <br>";
+        information += tr("<br>OpenGL: <br>");
         information += tr("SocNetV has OpenGL support, "
                        "but you have disabled it. "
                        "<br>"
@@ -105,13 +105,13 @@ DialogSystemInfo::DialogSystemInfo (QWidget *parent) :
                         "<br>");
     }
     #else
-    information += "<br>OpenGL: <br>";
-    information += "NONE. Build without OpenGL support!";
+    information += tr("<br>OpenGL: <br>");
+    information += tr("NONE. Build without OpenGL support!");
     #endif
 
 
 
-    information += "<br>Library Paths: <br>" ;
+    information += tr("<br>Library Paths: <br>") ;
     foreach(QString libPath, QCoreApplication::libraryPaths() ) {
         information += libPath + "<br>";
     }
@@ -119,18 +119,18 @@ DialogSystemInfo::DialogSystemInfo (QWidget *parent) :
     information += "<br><br>";
 
 
-    information += "<b>YOUR SCREEN</b><br><br>";
-    information += "Geometry: <br>";
+    information += tr("<b>YOUR SCREEN</b><br><br>");
+    information += tr("Geometry: <br>");
     information += QString::number(QApplication::primaryScreen()->geometry().x());
     information += " x ";
     information += QString::number(QApplication::primaryScreen()->geometry().y());
     information += "<br><br>";
-    information += "Size: <br>";
+    information += tr("Size: <br>");
     information += QString::number(QApplication::primaryScreen()->size().width());
     information += " x ";
     information += QString::number(QApplication::primaryScreen()->size().height());
     information += "<br><br>";
-    information += "Available Size: <br>";
+    information += tr("Available Size: <br>");
     information += QString::number(QApplication::primaryScreen()->availableSize().width());
     information += " x ";
     information += QString::number(QApplication::primaryScreen()->availableSize().height());
@@ -138,7 +138,7 @@ DialogSystemInfo::DialogSystemInfo (QWidget *parent) :
     information += "Device Pixel Ratio (the scale factor applied by the OS/Windowing system): <br>";
     information += QString::number(QApplication::primaryScreen()->devicePixelRatio());
     information += "<br><br>";
-    information += "Logical DPI (i.e. 144 on Windows default 150% mode): <br>";
+    information += tr("Logical DPI (i.e. 144 on Windows default 150% mode): <br>");
     information += QString::number(QApplication::primaryScreen()->logicalDotsPerInch());
 
 

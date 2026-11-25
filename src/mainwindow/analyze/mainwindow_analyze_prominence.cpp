@@ -151,7 +151,7 @@ void MainWindow::slotAnalyzeProminenceDistributionChartUpdate(QAbstractSeries *s
     miniChart->addSeries(series);
 
     // Set Chart title and remove legend
-    miniChart->setTitle(series->name() + QString(" distribution"), QFont("Times", 8));
+    miniChart->setTitle(series->name() + QString(tr(" distribution")), QFont("Times", 8));
 
     miniChart->toggleLegend(false);
 

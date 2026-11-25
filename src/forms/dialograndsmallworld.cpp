@@ -86,9 +86,9 @@ void DialogRandSmallWorld::setModeUndirected (){
 
 void DialogRandSmallWorld::setDiag (){
     if (ui->diagCheckBox->isChecked())
-        ui->diagCheckBox->setText("Yes, allow");
+        ui->diagCheckBox->setText(tr("Yes, allow"));
     else
-        ui->diagCheckBox->setText("No, set zero");
+        ui->diagCheckBox->setText(tr("No, set zero"));
 }
 
 void DialogRandSmallWorld::checkErrors() {

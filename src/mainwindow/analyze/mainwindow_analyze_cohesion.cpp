@@ -485,7 +485,7 @@ void MainWindow::slotAnalyzeCommunitiesCliqueCensus()
     }
     if (activeNodes() == 1)
     {
-        slotHelpMessageToUserError("Only one node is present, therefore 1 clique");
+        slotHelpMessageToUserError(tr("Only one node is present, therefore 1 clique"));
         return;
     }
 
@@ -505,7 +505,7 @@ void MainWindow::slotAnalyzeCommunitiesCliqueCensus()
             {
                 return;
             }
-            if (appSettings["viewReportsInSystemBrowser"] == "true")
+            if (appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

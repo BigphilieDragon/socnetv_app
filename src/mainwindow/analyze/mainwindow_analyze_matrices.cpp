@@ -122,7 +122,7 @@ void MainWindow::slotAnalyzeMatrixAdjacencyInverse()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -167,7 +167,7 @@ void MainWindow::slotAnalyzeMatrixAdjacencyTranspose()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -212,7 +212,7 @@ void MainWindow::slotAnalyzeMatrixAdjacencyCocitation()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -257,7 +257,7 @@ void MainWindow::slotAnalyzeMatrixDegree()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -304,7 +304,7 @@ void MainWindow::slotAnalyzeMatrixLaplacian()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -346,7 +346,7 @@ void MainWindow::slotAnalyzeMatrixDistances()
     auto negativeWeights = std::make_shared<bool>(false);
 
     auto openReport = [this, fn, reportFormat]() {
-        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+        if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
         {
             QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
         }
@@ -466,7 +466,7 @@ void MainWindow::slotAnalyzeMatrixGeodesics()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -512,7 +512,7 @@ void MainWindow::slotAnalyzeReachabilityMatrix()
                 statusMessage(tr("Computation canceled."));
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

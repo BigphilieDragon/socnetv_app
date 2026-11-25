@@ -31,7 +31,7 @@ DialogWebCrawler::DialogWebCrawler(QWidget *parent) : QDialog (parent)
     (ui.buttonBox)->button (QDialogButtonBox::Ok)->setDisabled(true);
 
     ui.seedUrlEdit->setFocus();
-    ui.seedUrlEdit->setPlaceholderText("Please enter a url...");
+    ui.seedUrlEdit->setPlaceholderText(tr("Please enter a url..."));
 
     ui.patternsIncludedTextEdit->setText("*");
     ui.patternsExcludedTextEdit->setText("");

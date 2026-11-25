@@ -57,15 +57,15 @@ void MainWindow::initPanels()
     toolBoxNetworkAutoCreateSelect->setToolTip(helpMessage);
     toolBoxNetworkAutoCreateSelect->setWhatsThis(helpMessage);
     QStringList networkAutoCreateSelectCommands;
-    networkAutoCreateSelectCommands << "Select"
-                                    << "Famous data sets"
-                                    << "Random scale-free"
-                                    << "Random small-world"
-                                    << "Random Erdős–Rényi"
-                                    << "Random lattice"
-                                    << "Random d-regular"
-                                    << "Random ring-lattice"
-                                    << "With Web Crawler";
+    networkAutoCreateSelectCommands << tr("Select")
+                                    << tr("Famous data sets")
+                                    << tr("Random scale-free")
+                                    << tr("Random small-world")
+                                    << tr("Random Erdős–Rényi")
+                                    << tr("Random lattice")
+                                    << tr("Random d-regular")
+                                    << tr("Random ring-lattice")
+                                    << tr("With Web Crawler");
     toolBoxNetworkAutoCreateSelect->addItems(networkAutoCreateSelectCommands);
 
     toolBoxNetworkAutoCreateSelect->setMinimumWidth(90);
@@ -90,11 +90,11 @@ void MainWindow::initPanels()
     toolBoxEditNodeSubgraphSelectLabel->setToolTip(helpMessage);
     toolBoxEditNodeSubgraphSelectLabel->setWhatsThis(helpMessage);
     QStringList editNodeSubgraphCommands;
-    editNodeSubgraphCommands << "Select"
-                             << "Clique"
-                             << "Star"
-                             << "Cycle"
-                             << "Line";
+    editNodeSubgraphCommands << tr("Select")
+                             << tr("Clique")
+                             << tr("Star")
+                             << tr("Cycle")
+                             << tr("Line");
     toolBoxEditNodeSubgraphSelect->addItems(editNodeSubgraphCommands);
     toolBoxEditNodeSubgraphSelect->setMinimumWidth(90);
 
@@ -114,8 +114,8 @@ void MainWindow::initPanels()
     toolBoxEditEdgeModeSelect->setToolTip(helpMessage);
     toolBoxEditEdgeModeSelect->setWhatsThis(helpMessage);
     QStringList edgeModeCommands;
-    edgeModeCommands << "Directed"
-                     << "Undirected";
+    edgeModeCommands << tr("Directed")
+                     << tr("Undirected");
     toolBoxEditEdgeModeSelect->addItems(edgeModeCommands);
     toolBoxEditEdgeModeSelect->setMinimumWidth(120);
 
@@ -163,11 +163,11 @@ void MainWindow::initPanels()
     toolBoxEditEdgeTransformSelect->setWhatsThis(helpMessage);
 
     QStringList edgeTransformCommands;
-    edgeTransformCommands << "Select"
-                          << "Symmetrize All Ties"
-                          << "Symmetrize Strong Ties"
-                          << "Cocitation Network"
-                          << "Edge Dichotomization";
+    edgeTransformCommands << tr("Select")
+                          << tr("Symmetrize All Ties")
+                          << tr("Symmetrize Strong Ties")
+                          << tr("Cocitation Network")
+                          << tr("Edge Dichotomization");
     toolBoxEditEdgeTransformSelect->addItems(edgeTransformCommands);
     toolBoxEditEdgeTransformSelect->setMinimumWidth(120);
 
@@ -199,14 +199,14 @@ void MainWindow::initPanels()
            "<p><em>Restore All Nodes</em> — undo the last node filter.</p>"
            "<p><em>Restore All Edges</em> — undo the last edge filter.</p>"));
     QStringList filterCommands;
-    filterCommands << "Select"
-                   << "Focus on Node (Ego Network)"
-                   << "Focus on Selection"
-                   << "Filter Nodes by Centrality"
-                   << "Filter Nodes/Edges by Attribute"
-                   << "Filter Edges by Weight"
-                   << "Restore All Nodes"
-                   << "Restore All Edges";
+    filterCommands << tr("Select")
+                   << tr("Focus on Node (Ego Network)")
+                   << tr("Focus on Selection")
+                   << tr("Filter Nodes by Centrality")
+                   << tr("Filter Nodes/Edges by Attribute")
+                   << tr("Filter Edges by Weight")
+                   << tr("Restore All Nodes")
+                   << tr("Restore All Edges");
     toolBoxFilterSelect->addItems(filterCommands);
     toolBoxFilterSelect->setMinimumWidth(120);
 
@@ -244,14 +244,14 @@ void MainWindow::initPanels()
     toolBoxAnalysisMatricesSelect->setToolTip(helpMessage);
     toolBoxAnalysisMatricesSelect->setWhatsThis(helpMessage);
     QStringList graphMatricesList;
-    graphMatricesList << "Select"
-                      << "Adjacency"
-                      << "Adjacency Plot"
-                      << "Adjacency Inverse"
-                      << "Adjacency Transpose"
-                      << "Cocitation Matrix"
-                      << "Degree Matrix"
-                      << "Laplacian Matrix";
+    graphMatricesList << tr("Select")
+                      << tr("Adjacency")
+                      << tr("Adjacency Plot")
+                      << tr("Adjacency Inverse")
+                      << tr("Adjacency Transpose")
+                      << tr("Cocitation Matrix")
+                      << tr("Degree Matrix")
+                      << tr("Laplacian Matrix");
     toolBoxAnalysisMatricesSelect->addItems(graphMatricesList);
     toolBoxAnalysisMatricesSelect->setMinimumWidth(120);
 
@@ -316,23 +316,23 @@ void MainWindow::initPanels()
     toolBoxAnalysisCohesionSelect->setWhatsThis(helpMessage);
 
     QStringList graphPropertiesList;
-    graphPropertiesList << "Select"
-                        << "Reciprocity"
-                        << "Symmetry"
-                        << "Distance"
-                        << "Average Distance"
-                        << "Geodesic Distribution"
-                        << "Distances Matrix"
-                        << "Geodesics Matrix"
-                        << "Eccentricity"
-                        << "Diameter"
-                        << "Connectedness"
-                        << "Walks of given length"
-                        << "Total Walks"
-                        << "Reachability Matrix"
-                        << "Clustering Coefficient"
-                        << "Node Connectivity"
-                        << "Graph Connectivity";
+    graphPropertiesList << tr("Select")
+                        << tr("Reciprocity")
+                        << tr("Symmetry")
+                        << tr("Distance")
+                        << tr("Average Distance")
+                        << tr("Geodesic Distribution")
+                        << tr("Distances Matrix")
+                        << tr("Geodesics Matrix")
+                        << tr("Eccentricity")
+                        << tr("Diameter")
+                        << tr("Connectedness")
+                        << tr("Walks of given length")
+                        << tr("Total Walks")
+                        << tr("Reachability Matrix")
+                        << tr("Clustering Coefficient")
+                        << tr("Node Connectivity")
+                        << tr("Graph Connectivity");
     toolBoxAnalysisCohesionSelect->addItems(graphPropertiesList);
     toolBoxAnalysisCohesionSelect->setMinimumWidth(120);
 
@@ -426,23 +426,23 @@ void MainWindow::initPanels()
     toolBoxAnalysisProminenceSelect->setWhatsThis(helpMessage);
 
     // Used in toolBoxAnalysisProminenceSelect and DialogNodeFind
-    prominenceIndexList << "Degree Centrality"
-                        << "Closeness Centrality"
-                        << "IR Closeness Centrality"
-                        << "Betweenness Centrality"
-                        << "Stress Centrality"
-                        << "Eccentricity Centrality"
-                        << "Power Centrality"
-                        << "Information Centrality"
-                        << "Eigenvector Centrality"
-                        << "Katz Centrality"
-                        << "Bonacich Power Centrality"
-                        << "Degree Prestige"
-                        << "PageRank Prestige"
-                        << "Proximity Prestige"
-                        << "Clustering Coefficient"
-                        << "Signed Degree Centrality"
-                        << "PN Centrality";
+    prominenceIndexList << tr("Degree Centrality")
+                        << tr("Closeness Centrality")
+                        << tr("IR Closeness Centrality")
+                        << tr("Betweenness Centrality")
+                        << tr("Stress Centrality")
+                        << tr("Eccentricity Centrality")
+                        << tr("Power Centrality")
+                        << tr("Information Centrality")
+                        << tr("Eigenvector Centrality")
+                        << tr("Katz Centrality")
+                        << tr("Bonacich Power Centrality")
+                        << tr("Degree Prestige")
+                        << tr("PageRank Prestige")
+                        << tr("Proximity Prestige")
+                        << tr("Clustering Coefficient")
+                        << tr("Signed Degree Centrality")
+                        << tr("PN Centrality");
     // This list's order must match IndexType's enum values exactly, starting at DC=1:
     // toolBoxLayoutByIndexSelect's currentIndex syncing (mainwindow_layout.cpp's
     // setCurrentIndex(indexType + 1) calls) and vertexFindByIndexScore()/
@@ -464,8 +464,8 @@ void MainWindow::initPanels()
     // vertexFindByIndexScore(), and vertexFilterByCentrality() don't have a case for either yet -
     // selecting them opens their report and nothing more, same limited scope as their menu action.
     QStringList prominenceCommands;
-    prominenceCommands << "Select" << prominenceIndexList;
-    prominenceCommands.removeAll("Clustering Coefficient");
+    prominenceCommands << tr("Select") << prominenceIndexList;
+    prominenceCommands.removeAll(tr("Clustering Coefficient"));
     toolBoxAnalysisProminenceSelect->addItems(prominenceCommands);
     toolBoxAnalysisProminenceSelect->setMinimumWidth(120);
 
@@ -489,9 +489,9 @@ void MainWindow::initPanels()
     toolBoxAnalysisCommunitiesSelect->setToolTip(helpMessage);
     toolBoxAnalysisCommunitiesSelect->setWhatsThis(helpMessage);
     QStringList communitiesCommands;
-    communitiesCommands << "Select"
-                        << "Cliques"
-                        << "Triad Census";
+    communitiesCommands << tr("Select")
+                        << tr("Cliques")
+                        << tr("Triad Census");
     toolBoxAnalysisCommunitiesSelect->addItems(communitiesCommands);
     toolBoxAnalysisCommunitiesSelect->setMinimumWidth(120);
 
@@ -514,11 +514,11 @@ void MainWindow::initPanels()
     toolBoxAnalysisStrEquivalenceSelect->setToolTip(helpMessage);
     toolBoxAnalysisStrEquivalenceSelect->setWhatsThis(helpMessage);
     QStringList connectivityCommands;
-    connectivityCommands << "Select"
-                         << "Pearson Coefficients"
-                         << "Similarities"
-                         << "Dissimilarities"
-                         << "Hierarchical Clustering";
+    connectivityCommands << tr("Select")
+                         << tr("Pearson Coefficients")
+                         << tr("Similarities")
+                         << tr("Dissimilarities")
+                         << tr("Hierarchical Clustering");
     toolBoxAnalysisStrEquivalenceSelect->addItems(connectivityCommands);
     toolBoxAnalysisStrEquivalenceSelect->setMinimumWidth(120);
 
@@ -614,13 +614,13 @@ void MainWindow::initPanels()
     toolBoxLayoutByIndexSelect->setToolTip(helpMessage);
     toolBoxLayoutByIndexSelect->setWhatsThis(helpMessage);
     QStringList layoutCommandsList;
-    layoutCommandsList << "None" << "Random" << prominenceIndexList;
+    layoutCommandsList << tr("None") << tr("Random") << prominenceIndexList;
     // Signed Degree Centrality and PN Centrality (both WS18 P3) have no single standardized
     // score, so layoutByProminenceIndex() doesn't support either (see their own comments) -
     // excluded here the same way "Clustering Coefficient" is excluded from the Prominence combo
     // box above.
-    layoutCommandsList.removeAll("Signed Degree Centrality");
-    layoutCommandsList.removeAll("PN Centrality");
+    layoutCommandsList.removeAll(tr("Signed Degree Centrality"));
+    layoutCommandsList.removeAll(tr("PN Centrality"));
 
     toolBoxLayoutByIndexSelect->addItems(layoutCommandsList);
     toolBoxLayoutByIndexSelect->setMinimumWidth(100);
@@ -639,7 +639,7 @@ void MainWindow::initPanels()
     toolBoxLayoutByIndexTypeSelect->setToolTip(helpMessage);
     toolBoxLayoutByIndexTypeSelect->setWhatsThis(helpMessage);
     QStringList layoutTypes;
-    layoutTypes << "None" << "Radial" << "On Levels" << "Node Size" << "Node Color";
+    layoutTypes << tr("None") << tr("Radial") << tr("On Levels") << tr("Node Size") << tr("Node Color");
     toolBoxLayoutByIndexTypeSelect->addItems(layoutTypes);
     toolBoxLayoutByIndexTypeSelect->setMinimumWidth(100);
 
@@ -766,7 +766,7 @@ void MainWindow::initPanels()
     // ── Network section ───────────────────────────────────────────────────────
     m_networkToggleBtn = makeSectionBtn(tr("NETWORK"));
 
-    QLabel *rightPanelNetworkTypeLabel = new QLabel("Type:");
+    QLabel *rightPanelNetworkTypeLabel = new QLabel(tr("Type:"));
     rightPanelNetworkTypeLabel->setStatusTip(
         tr("The type of the network: directed or undirected. "
            "Toggle the menu option Edit->Edges->Undirected Edges to change it"));
@@ -1144,12 +1144,12 @@ void MainWindow::initWindowLayout()
             viewDataTableAct, &QAction::setChecked);
 
     // set panels visibility
-    if (appSettings["showRightPanel"] == "false")
+    if (appSettings["showRightPanel"] == tr("false"))
     {
         slotOptionsWindowRightPanelVisibility(false);
     }
 
-    if (appSettings["showLeftPanel"] == "false")
+    if (appSettings["showLeftPanel"] == tr("false"))
     {
         slotOptionsWindowLeftPanelVisibility(false);
     }
@@ -1157,7 +1157,7 @@ void MainWindow::initWindowLayout()
     //
     // Load our default stylesheet, if set in the app settings.
     //
-    if (appSettings["useCustomStyleSheet"] == "true")
+    if (appSettings["useCustomStyleSheet"] == tr("true"))
     {
         slotStyleSheetByName(":/qss/default.qss");
     }

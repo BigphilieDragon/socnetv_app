@@ -14,6 +14,7 @@
  */
 
 #include "mainwindow.h"
+#include <QCoreApplication>
 #include "graph.h"
 #include "graphicswidget.h"
 #include "texteditor.h"
@@ -133,7 +134,7 @@ void MainWindow::slotAnalyzeStrEquivalenceSimilarityByMeasure(const QString &mat
         [this, fn, reportFormat, success]() {
             if (!*success)
                 return;
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -223,7 +224,7 @@ void MainWindow::slotAnalyzeStrEquivalenceDissimilaritiesTieProfile(const QStrin
             {
                 return;
             }
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -289,7 +290,7 @@ void MainWindow::slotAnalyzeStrEquivalencePearson(const QString &matrix,
         [this, fn, reportFormat, success]() {
             if (!*success)
                 return;
-            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == "true")
+            if (reportFormat == ReportFormat::Csv || appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }
@@ -316,11 +317,11 @@ void MainWindow::slotAnalyzeStrEquivalenceClusteringHierarchicalDialog()
         return;
     }
 
-    QString preselectMatrix = "Adjacency";
+    QString preselectMatrix = QCoreApplication::translate("SocNetV", "Adjacency");
 
     if (!activeGraph->isWeighted())
     {
-        preselectMatrix = "Distances";
+        preselectMatrix = QCoreApplication::translate("SocNetV", "Distances");
     }
     m_dialogClusteringHierarchical = new DialogClusteringHierarchical(this, preselectMatrix);
 
@@ -376,7 +377,7 @@ void MainWindow::slotAnalyzeStrEquivalenceClusteringHierarchical(const QString &
             {
                 return;
             }
-            if (appSettings["viewReportsInSystemBrowser"] == "true")
+            if (appSettings["viewReportsInSystemBrowser"] == tr("true"))
             {
                 QDesktopServices::openUrl(QUrl::fromLocalFile(fn));
             }

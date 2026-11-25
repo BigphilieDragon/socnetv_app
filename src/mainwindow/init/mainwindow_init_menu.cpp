@@ -255,7 +255,7 @@ void MainWindow::initMenuBar()
     analysisMenu->addMenu(cohesionMenu);
     cohesionMenu->addAction(analyzeGraphReciprocityAct);
     cohesionMenu->addAction(analyzeGraphSymmetryAct);
-    cohesionMenu->addSection("Graph distances");
+    cohesionMenu->addSection(tr("Graph distances"));
     cohesionMenu->addAction(analyzeGraphDistanceAct);
     cohesionMenu->addAction(averGraphDistanceAct);
     cohesionMenu->addAction(analyzeGeodesicDistributionAct);

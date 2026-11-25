@@ -386,7 +386,7 @@ void MainWindow::slotOptionsEdgeOffsetFromNode(const int &offset, const int &v1,
     if (!newOffset)
     {
         newOffset = QInputDialog::getInt(
-            this, "Change edge offset",
+            this, tr("Change edge offset"),
             tr("Change all edges offset from their nodes to: (1-16)"),
             appSettings["initNodeLabelDistance"].toInt(0, 10), 1, 16, 1, &ok);
         if (!ok)
@@ -715,23 +715,23 @@ void MainWindow::slotOptionsCanvasUpdateMode(const QString &mode)
 
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
-    if (mode == "Full")
+    if (mode == tr("Full"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
     }
-    else if (mode == "Minimal")
+    else if (mode == tr("Minimal"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::MinimalViewportUpdate);
     }
-    else if (mode == "Smart")
+    else if (mode == tr("Smart"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
     }
-    else if (mode == "Bounding Rectangle")
+    else if (mode == tr("Bounding Rectangle"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     }
-    else if (mode == "None")
+    else if (mode == tr("None"))
     {
         graphicsWidget->setViewportUpdateMode(QGraphicsView::NoViewportUpdate);
     }
@@ -763,11 +763,11 @@ void MainWindow::slotOptionsCanvasIndexMethod(const QString &method)
 
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
-    if (method == "BspTreeIndex")
+    if (method == tr("BspTreeIndex"))
     { // Qt default
         graphicsWidget->scene()->setItemIndexMethod(QGraphicsScene::BspTreeIndex);
     }
-    else if (method == "NoIndex")
+    else if (method == tr("NoIndex"))
     { // for animated scenes
         graphicsWidget->scene()->setItemIndexMethod(QGraphicsScene::NoIndex);
     }
@@ -859,7 +859,7 @@ void MainWindow::slotOptionsBackgroundColor(QColor color)
     {
         color = QColorDialog::getColor(QColor(appSettings["initBackgroundColor"]),
                                        this,
-                                       "Change the background color");
+                                       tr("Change the background color"));
     }
     if (color.isValid())
     {

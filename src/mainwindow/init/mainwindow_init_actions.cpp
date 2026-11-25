@@ -2546,7 +2546,7 @@ void MainWindow::initActions()
            "Enables or disables displaying of node numbers."));
     optionsNodeNumbersVisibilityAct->setCheckable(true);
     optionsNodeNumbersVisibilityAct->setChecked(
-        (appSettings["initNodeNumbersVisibility"] == "true") ? true : false);
+        (appSettings["initNodeNumbersVisibility"] == tr("true")) ? true : false);
     connect(optionsNodeNumbersVisibilityAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsNodeNumbersVisibility(bool)));
 
@@ -2558,7 +2558,7 @@ void MainWindow::initActions()
            "Enables or disables displaying node numbers inside nodes."));
     optionsNodeNumbersInsideAct->setCheckable(true);
     optionsNodeNumbersInsideAct->setChecked(
-        (appSettings["initNodeNumbersInside"] == "true") ? true : false);
+        (appSettings["initNodeNumbersInside"] == tr("true")) ? true : false);
     connect(optionsNodeNumbersInsideAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsNodeNumbersInside(bool)));
 
@@ -2570,7 +2570,7 @@ void MainWindow::initActions()
            "Enables or disables node labels."));
     optionsNodeLabelsVisibilityAct->setCheckable(true);
     optionsNodeLabelsVisibilityAct->setChecked(
-        (appSettings["initNodeLabelsVisibility"] == "true") ? true : false);
+        (appSettings["initNodeLabelsVisibility"] == tr("true")) ? true : false);
     connect(optionsNodeLabelsVisibilityAct, SIGNAL(toggled(bool)),
             this, SLOT(slotOptionsNodeLabelsVisibility(bool)));
 
@@ -2581,7 +2581,7 @@ void MainWindow::initActions()
            "Enables or disables displaying of edges."));
     optionsEdgesVisibilityAct->setCheckable(true);
     optionsEdgesVisibilityAct->setChecked(
-        (appSettings["initEdgesVisibility"] == "true") ? true : false);
+        (appSettings["initEdgesVisibility"] == tr("true")) ? true : false);
     connect(optionsEdgesVisibilityAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsEdgesVisibility(bool)));
 
@@ -2618,7 +2618,7 @@ void MainWindow::initActions()
            "Enables or disables displaying edge labels."));
     optionsEdgeLabelsAct->setCheckable(true);
     optionsEdgeLabelsAct->setChecked(
-        (appSettings["initEdgeLabelsVisibility"] == "true") ? true : false);
+        (appSettings["initEdgeLabelsVisibility"] == tr("true")) ? true : false);
     connect(optionsEdgeLabelsAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsEdgeLabelsVisibility(bool)));
 
@@ -2631,7 +2631,7 @@ void MainWindow::initActions()
            "Useful if all links are reciprocal (undirected graph)."));
     optionsEdgeArrowsAct->setCheckable(true);
     optionsEdgeArrowsAct->setChecked(
-        (appSettings["initEdgeArrows"] == "true") ? true : false);
+        (appSettings["initEdgeArrows"] == tr("true")) ? true : false);
     connect(optionsEdgeArrowsAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsEdgeArrowsVisibility(bool)));
 
@@ -2642,7 +2642,7 @@ void MainWindow::initActions()
            "Click to toggle having all edges as thick as their weight (if specified)"));
     optionsEdgeThicknessPerWeightAct->setCheckable(true);
     optionsEdgeThicknessPerWeightAct->setChecked(
-        (appSettings["initEdgeThicknessPerWeight"] == "true") ? true : false);
+        (appSettings["initEdgeThicknessPerWeight"] == tr("true")) ? true : false);
     connect(optionsEdgeThicknessPerWeightAct, SIGNAL(triggered(bool)),
             this, SLOT(slotOptionsEdgeThicknessPerWeight(bool)));
     optionsEdgeThicknessPerWeightAct->setEnabled(false);

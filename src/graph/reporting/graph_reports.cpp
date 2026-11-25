@@ -15,6 +15,7 @@
  */
 
 #include "graph.h"
+#include <QCoreApplication>
 #include "graph/io/table_export.h"
 
 #include <QFile>
@@ -5093,7 +5094,7 @@ bool Graph::writeMatrixSimilarityMatching(const QString fileName,
     Matrix SCM;
     int N = vertices();
 
-    if (matrix == "Adjacency")
+    if (matrix == tr("Adjacency"))
     {
         createMatrixAdjacency();
         if (progressCanceled())
@@ -5104,7 +5105,7 @@ bool Graph::writeMatrixSimilarityMatching(const QString fileName,
         createMatrixSimilarityMatching(AM, SCM, measureInt,
                                        varLocation, diagonal, considerWeights);
     }
-    else if (matrix == "Distances")
+    else if (matrix == QCoreApplication::translate("SocNetV", "Distances"))
     {
         graphDistancesGeodesic();
         createMatrixSimilarityMatching(DM, SCM, measureInt,
@@ -5280,7 +5281,7 @@ bool Graph::writeMatrixSimilarityPearson(const QString fileName,
     Matrix PCC;
     int N = vertices();
 
-    if (matrix == "Adjacency")
+    if (matrix == tr("Adjacency"))
     {
         createMatrixAdjacency();
         if (progressCanceled())
@@ -5290,7 +5291,7 @@ bool Graph::writeMatrixSimilarityPearson(const QString fileName,
         }        
         createMatrixSimilarityPearson(AM, PCC, varLocation, diagonal);
     }
-    else if (matrix == "Distances")
+    else if (matrix == QCoreApplication::translate("SocNetV", "Distances"))
     {
         graphDistancesGeodesic();
         if (progressCanceled())

@@ -174,7 +174,7 @@ QMap<QString, QString> MainWindow::initSettings(const int &debugLevel, const boo
         // Migration 2: switch old BspTreeIndex default → NoIndex (better for large dynamic scenes)
         if (appSettings.value("settingsMigration", "0").toInt() < 2)
         {
-            if (appSettings["canvasIndexMethod"] == "BspTreeIndex")
+            if (appSettings["canvasIndexMethod"] == tr("BspTreeIndex"))
                 appSettings["canvasIndexMethod"] = "NoIndex";
             appSettings["settingsMigration"] = "2";
         }
@@ -210,7 +210,7 @@ QMap<QString, QString> MainWindow::initSettings(const int &debugLevel, const boo
         slotOptionsDebugMessages(false);
     }
 
-    if (appSettings["printDebug"] == "true")
+    if (appSettings["printDebug"] == tr("true"))
     {
         slotOptionsDebugMessages(true);
     }
@@ -232,18 +232,18 @@ QMap<QString, QString> MainWindow::initSettings(const int &debugLevel, const boo
     // 1. Add a new enum in NodeShape (global.h)
     // 2. Add a new branch in GraphicsNode::setShape() and paint()
     // 3. Add a new branch in DialogNodeEdit: getNodeShape() and getUserChoices()
-    nodeShapeList << "box"
-                  << "circle"
-                  << "diamond"
-                  << "ellipse"
-                  << "triangle"
-                  << "star"
-                  << "person"
-                  << "person-b"
-                  << "bugs"
-                  << "heart"
-                  << "dice"
-                  << "custom";
+    nodeShapeList << tr("box")
+                  << tr("circle")
+                  << tr("diamond")
+                  << tr("ellipse")
+                  << tr("triangle")
+                  << tr("star")
+                  << tr("person")
+                  << tr("person-b")
+                  << tr("bugs")
+                  << tr("heart")
+                  << tr("dice")
+                  << tr("custom");
 
     iconPathList << ":/images/box.png"
                  << ":/images/circle.png"

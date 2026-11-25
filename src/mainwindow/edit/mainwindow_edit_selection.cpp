@@ -94,14 +94,14 @@ void MainWindow::slotEditDragModeScroll(bool checked)
 void MainWindow::slotEditOpenContextMenu(const QPointF &mPos)
 {
     Q_UNUSED(mPos);
-    QMenu *contextMenu = new QMenu(" Menu", this);
+    QMenu *contextMenu = new QMenu(tr(" Menu"), this);
     Q_CHECK_PTR(contextMenu); // displays "out of memory" if needed
 
     int nodesSelected = activeGraph->getSelectedVerticesCount();
     int edgesSelected = activeGraph->getSelectedEdgesCount();
     int totalSelected = nodesSelected + edgesSelected;
 
-    contextMenu->addAction("## Selected nodes: " + QString::number(nodesSelected) + "  edges: " + QString::number(edgesSelected) + " ##  ");
+    contextMenu->addAction(tr("## Selected nodes: ") + QString::number(nodesSelected) + tr("  edges: ") + QString::number(edgesSelected) + tr(" ##  "));
 
     contextMenu->addSeparator();
 
@@ -146,7 +146,7 @@ void MainWindow::slotEditOpenContextMenu(const QPointF &mPos)
     contextMenu->addAction(editEdgeAddAct);
     contextMenu->addSeparator();
 
-    QMenu *options = new QMenu("Options", this);
+    QMenu *options = new QMenu(tr("Options"), this);
     contextMenu->addMenu(options);
 
     options->addAction(openSettingsAct);

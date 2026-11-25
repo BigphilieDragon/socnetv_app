@@ -223,7 +223,7 @@ void MainWindow::slotNetworkExportImage(const QString &filename,
     //
     qCDebug(lcMainWindow) << "Adding name (and logo)..";
     p.setFont(QFont("Helvetica", 10, QFont::Normal, false));
-    if (appSettings["printLogo"] == "true")
+    if (appSettings["printLogo"] == tr("true"))
     {
         QImage logo(":/images/socnetv-logo.png");
         p.drawImage(5, 5, logo);
@@ -254,8 +254,8 @@ void MainWindow::slotNetworkExportImage(const QString &filename,
     imgWriter.setQuality(quality);
     imgWriter.setCompression(compression);
     imgWriter.setFileName(filename);
-    imgWriter.setText("Author", author);
-    imgWriter.setText("", "Created by " + author);
+    imgWriter.setText(tr("Author"), author);
+    imgWriter.setText("", tr("Created by ") + author);
     imgWriter.setOptimizedWrite(true);
     imgWriter.setProgressiveScanWrite(true);
     if (imgWriter.write(picture))
@@ -341,7 +341,7 @@ void MainWindow::slotNetworkExportPDF(QString &pdfName,
         graphicsWidget->render(&p, QRect(0, 0, printerPDF->width(), printerPDF->height()),
                                graphicsWidget->viewport()->rect());
         p.setFont(QFont("Helvetica", 8, QFont::Normal, false));
-        if (appSettings["printLogo"] == "true")
+        if (appSettings["printLogo"] == tr("true"))
         {
             QImage logo(":/images/socnetv-logo.png");
             p.drawImage(5, 5, logo);
@@ -581,7 +581,7 @@ bool MainWindow::slotNetworkExportGW()
     {
         statusMessage(tr("Saving network under new filename..."));
         QString fn = QFileDialog::getSaveFileName(
-            this, "Export GW", getLastPath(), 0);
+            this, tr("Export GW"), getLastPath(), 0);
         if (!fn.isEmpty())
         {
             fileName = fn;
